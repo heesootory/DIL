@@ -55,3 +55,34 @@
 ## SQL
 
 ![sql](/Image/Django/sql.PNG)
+
+
+
+## ORM(Object Relation Mapping) 과 객체지향
+
+![user_model](/Image/Django/user_model.PNG)
+
+![user_table](/Image/Django/user_table.PNG)
+
+> user Model 은 class 로 만들어진 객체 지향 언어로 만들어져 있고,
+
+> user table은 table로 만들어진 데이터베이스 이다.
+
+![diff](/Image/Django/diff.PNG)
+
+> 따라서 이 둘을 연결해주는게 ***ORM*** 이다!!!
+
+> ORM 덕분에 model.py 에 python코드로 데이터베이스를 관리할 수 있고,
+> 서로 상이한 여러가지 SQL문을 사용하지 않아도 되기 때문에 생산성 향상.
+
+> 자바 spring에는 Jpa가 있다.
+
+![orm](/Image/Django/orm.PNG)
+
+![orm2](/Image/Django/orm2.PNG)
+
+![orm3](/Image/Django/orm3.PNG)
+
+* Model & Field : DBMS가 데이터베이스, 즉 테이블의 구조를 잡는데, 그 역할을 하는 곳.
+* Field : 데이터 형들을 정의함. 
+* QuerySet API : 쿼리를 날리는 역할.
