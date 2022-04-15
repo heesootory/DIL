@@ -80,7 +80,7 @@
    - 세션 보안
 
 
-[장고의 여러가지 기능들](/Image/Django기능.PNG);
+![장고의 여러가지 기능들](/Image/Django기능.PNG);
 
 ---
 ## Django 기본구조
