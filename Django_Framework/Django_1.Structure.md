@@ -80,7 +80,7 @@
    - 세션 보안
 
 
-![장고의 여러가지 기능들](/Image/Django기능.PNG)
+![장고의 여러가지 기능들](/Image/Django/Django기능.PNG)
 
 ---
 ## Django 기본구조
@@ -94,11 +94,11 @@
 
 <br>
 
-![장고 MTV 디자인 패턴- 2](/Image/장고_디자인패턴2.PNG)
+![장고 MTV 디자인 패턴- 2](/Image/Django/장고_디자인패턴2.PNG)
 
 <br>
 
-![장고 실행 흐름](/Image/장고실행흐름.PNG)
+![장고 실행 흐름](/Image/Django/장고실행흐름.PNG)
 
 
 
