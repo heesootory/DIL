@@ -18,7 +18,7 @@
 #### QuerySet : DB에서 전달 받은 객체의 목록.
 #### QuerySet API : DB에 요청하기 위한 인터페이스.
 
-[QuerySet 공식문서](https://docs.djangoproject.com/en/4.0/ref/models/querysets/)
+[QuerySet API 공식문서](https://docs.djangoproject.com/en/4.0/ref/models/querysets/)
 
 
 ![q1](/Image/Django/q1.PNG)

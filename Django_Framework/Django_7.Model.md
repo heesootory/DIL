@@ -38,8 +38,11 @@
 
 ![ex3](/Image/Django/ex3.PNG)
 
+[모델 필드 공식문서](https://docs.djangoproject.com/en/4.0/ref/models/fields/)
 
 [공식문서 - Field Type 에 대해]([/Image/Django/ex3.PNG](https://docs.djangoproject.com/en/4.0/ref/models/fields/#field-types))
+
+[필드 옵션 공식 문서](https://docs.djangoproject.com/en/4.0/ref/models/fields/#field-options)
 
 <br>
 

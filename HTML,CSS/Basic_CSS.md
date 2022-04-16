@@ -6,8 +6,12 @@
   - [style 태그 표기 - Selector](#style-태그-표기---selector)
   - [block과 inline](#block과-inline)
       - [display 태그를 이용해서 서로 변경가능](#display-태그를-이용해서-서로-변경가능)
-      - [margin 표기](#margin-표기)
+      - [margin 표기, padding 표기](#margin-표기-padding-표기)
     - [collapsing margins](#collapsing-margins)
+      - [모든 요소에 적용](#모든-요소에-적용)
+      - [id도 한데모아서 쓸수 있다.](#id도-한데모아서-쓸수-있다)
+  - [flexbox](#flexbox)
+      - [vh(viewport height)](#vhviewport-height)
 
 <br><br>
 
@@ -39,6 +43,8 @@ style 태그를 이용해서, 꼭 head에 넣어주기!
 ```
 <br><br>
 
+---
+
 ## block과 inline
 
 <ul>
@@ -54,6 +60,8 @@ style 태그를 이용해서, 꼭 head에 넣어주기!
         <ul>
             <li>옆으로 계속해서 생김.</li>
             <li>height, width 요소를 가질 수 없다.</li>
+            <li>padding, margin 은 가질수 있다.</li>
+            <li style = "background-color: #ffdce0">But!!!! padding은 모든방향으로 가질 수 있는데, margin은 좌우로 밖에 못가진다!!!!</li>
         </ul>
 </ul>
 <br>
@@ -67,17 +75,33 @@ ex) span, a, img, code 등...
 ```html
 <style>
    div{
-       display:inline;
+       display:inline-block;
    }
 <style>
 ```
+> inline으로 인식하지만, 성격은 block처럼, width, height, padding, margin 모두 4방향으로 가질수 있다. -> but 동작이 자연스럽지 않아서, 잘 사용하지 않음.<br>
+> (원하지 않은 공간도 생기게됨. 불편.)<br>
+> 결과적으로 나오게 된게 <mark>"flexbox"</mark>
 
-#### margin 표기
+#### margin 표기, padding 표기
+
+* 하나만 설정시 : 사방향
+* 두개만 설정시 : 상하, 좌우
+* 4개 설정시 : 위, 우, 아래, 좌 -> 시계방향
 ```css
 <style>
     div{
         margin: 20px 10px 5px 16px;
         //      top right bottom left -> 시계 방향으로 자동 순서 지정 가능
+    }
+</style>
+```
+
+```css
+<style>
+    div{
+        padding: 20px 10px;
+        //       상하, 좌우
     }
 </style>
 ```
@@ -100,5 +124,83 @@ ex) span, a, img, code 등...
 -> (body 에 div 하나만 존재할 때, body전체의 높이는 div의 높이가 전부이기 때문에 
 아래 코드처럼 현상이 나타남.)
 
+#### 모든 요소에 적용
+```css
+<style>
+    *{
+        border: 2px dashed black;   //2px 굵기로, 점선, 검정
+    }
+</style>
+```
 
+#### id도 한데모아서 쓸수 있다.
+```css
+<style>
+    # id1, id2, id3, id4{
+        background-color : tomato;
+    }
+</style>
+```
+> id1, id2, id3, id4 에 모두 적용됨. -> class 쓰는게 더 나음.
+
+<br>
+
+---
+
+## flexbox
+
+* 자식 엘리먼트에 명시하지 말고, 부모 엘리먼트에만 명시할 수 있다.
+* 부모를 flex container로 만든 후, main 축, cross 축에 따라 이동시킴.
+* <span style = "background-color: #ffdce0">주축(main)과 교차축(cross) 이지 수직, 수평이 아니다!</span>
+* justify-content : 주축
+* align-items: 교차축
+* flex-direction : column/row -> 주축 변경 
+
+```html
+<head>
+    <style>
+        body{
+            display: flex;  //이렇게 하고 자식들 컨트롤 -> div들 컨트롤
+            justify-content : space-between;       // main-axis 기준
+            align-items: center;                   // cross-axis 기준
+        }
+        div{
+            width :50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+```
+> flex 는 다양한 속성과 성격들이 있어서 연습이 필요!<br>
+[flex container 연습 사이트](https://flexboxfroggy.com/#ko)
+
+![flex](/Image/html/flex.png)
+
+#### vh(viewport height)
+: viewport = screen
+-> 100vh = 100% 화면크기<br>
+ 화면이 이동해도 그 비율대로 움직인다.
+
+```html
+    <style>
+        body{
+            height : 100vh
+            display: flex;  
+            justify-content : space-between;       
+            align-items: center;                   
+        }
+        div{
+            width :50px;
+            height: 50px;
+        }
+    </style>
+```
+> 화면을 스크롤로 내려도 계속해서 align-items: center 가 유지된다.<br>
+> (화면 세로기준 가운데 위치)
 
