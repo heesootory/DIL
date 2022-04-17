@@ -33,6 +33,10 @@
 
 > 127.0.0.1:8000/admin 기본페이지
 
+* 국제화 - 한국일시로 변경
+> setting에서 TIME_ZONE 을 'Asia/Seoul'로 변경
+
+![admin](/Image/Django/ad26.PNG)
 
 <br>
 

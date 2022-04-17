@@ -239,10 +239,22 @@ $ Post
 
 > SQLite EXPLORER/ posts_post 에서 제대로 들어간것을 확인.
 
+<br>
 
+### 데이터 삭제
 
+* 직접 삭제시
+```python
+$ 모델명.objects.filter(id='id넘버').delete()
+```
 
+* 인스턴스 이용해서 삭제시
+```python
+$ instance = 모델명.objects.get(id='id넘버')
+$ instance.delete()
+```
 
+![models21](/Image/Django/models22.PNG)
 
 
 
