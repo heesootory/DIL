@@ -12,6 +12,12 @@
       - [id도 한데모아서 쓸수 있다.](#id도-한데모아서-쓸수-있다)
   - [flexbox](#flexbox)
       - [vh(viewport height)](#vhviewport-height)
+  - [position](#position)
+    - [position: fixed](#position-fixed)
+    - [position: relative](#position-relative)
+    - [position: absolute](#position-absolute)
+  - [Pseudo Selector](#pseudo-selector)
+  - [Conbinator](#conbinator)
 
 <br><br>
 
@@ -203,4 +209,101 @@ ex) span, a, img, code 등...
 ```
 > 화면을 스크롤로 내려도 계속해서 align-items: center 가 유지된다.<br>
 > (화면 세로기준 가운데 위치)
+
+<br>
+
+---
+
+## position
+
+### position: fixed
+
+> 눈에 보이는 화면상에서 특정 위치에 고정시킨다. <br>
+> 화면을 이동해도, 계속 같은 위치에 따라다님. <br>
+> 넷플릭스의 상위 바 같이 , 함께 이동. <br>
+> block개념인, div에 적용했을시, 상위 div를 무시한다. <br>
+
+```html
+position : fixed;
+top : 15px;     // position  위치 지정
+```
+
+![fixed](/Image/html/fixed.PNG)
+![fixed](/Image/html/fixed2.PNG)
+
+
+### position: relative
+
+> 처음에 (원래) 위치한 곳에서 조금씩 이동할때 사용
+
+![fixed](/Image/html/fixed3.PNG)
+
+
+### position: absolute
+
+> 부모 엘리먼트 중, relative 한 엘리먼트를 기준으로 움직이게 함. <br>
+> <span style = "background-color: #ffdce0">부모 중 relative 요소가 없다면, 가장 밖의 relative한 body를 기준으로 움직임.</span>
+> (아래 예시)
+
+![fixed](/Image/html/fixed4.PNG)
+
+> 부모 엘리먼트인, div를 relative로 바꿔준다면, div를 기준으로 이동.
+
+![fixed](/Image/html/fixed5.PNG)
+
+<br>
+
+---
+
+## Pseudo Selector
+
+> style 태그로 조건부를 붙흰 태그를 설정가능케 . <br>
+> id나 class를 만드는 것보다 훨씬 좋은 방법이다.
+* first-child/ last-child
+* nth-child(**옵션)
+    - n을 사용해 규칙적용 가능.
+    - even, odd  
+* required/ optional
+* input의 옵션들도 정할 수 있음.
+    - [~"..."] : ... 문자열을 포함한 모든것.
+    - [type = ""/ placeholder = ""] 등
+
+[관련링크 - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+
+
+![selector](/Image/html/selc.PNG)
+![selector](/Image/html/s1.PNG)
+![selector](/Image/html/s2.PNG)
+![selector](/Image/html/s3.PNG)
+![selector](/Image/html/s9.PNG)
+![selector](/Image/html/s10.PNG)
+![selector](/Image/html/s11.PNG)
+
+
+<br>
+
+---
+
+
+## Conbinator
+
+> 여러 태그를 조합해, 속성 찾기 <br>
+> 원하는 만큼 자세히 부모들을 적어서 세부적으로 표시할 수 있다.
+
+![selector](/Image/html/s5.PNG)
+
+![selector](/Image/html/s6.PNG)
+> 바로 아래 자식을 표현할때 ">" <br>
+
+![selector](/Image/html/s7.PNG)
+> 자식 엘리먼트이면 어디있어도 가능.
+
+![selector](/Image/html/s8.PNG)
+> 동일한 계층의 두 엘리먼트에서 하나 다음에 있는 태그를 칭할때 <br>
+> -> "+" (p + span = p다음에 있는 같은 계층의 span)
+
+
+
+
+
 
