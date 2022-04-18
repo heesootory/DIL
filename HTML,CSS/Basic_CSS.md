@@ -155,7 +155,7 @@ ex) span, a, img, code 등...
 
 ## flexbox
 
-* 자식 엘리먼트에 명시하지 말고, 부모 엘리먼트에만 명시할 수 있다.
+* 자식 엘리먼트에 명시하지 말고, 부모 엘리먼트에만 명시할 수 있다. -> 부모가 자식을 컨트롤!
 * 부모를 flex container로 만든 후, main 축, cross 축에 따라 이동시킴.
 * <span style = "background-color: #ffdce0">주축(main)과 교차축(cross) 이지 수직, 수평이 아니다!</span>
 * justify-content : 주축
@@ -218,10 +218,10 @@ ex) span, a, img, code 등...
 
 ### position: fixed
 
-> 눈에 보이는 화면상에서 특정 위치에 고정시킨다. <br>
-> 화면을 이동해도, 계속 같은 위치에 따라다님. <br>
-> 넷플릭스의 상위 바 같이 , 함께 이동. <br>
-> block개념인, div에 적용했을시, 상위 div를 무시한다. <br>
+* 눈에 보이는 화면상에서 특정 위치에 고정시킨다. <br>
+* 화면을 이동해도, 계속 같은 위치에 따라다님. <br>
+* 넷플릭스의 상위 바 같이 , 함께 이동. <br>
+* block개념인, div에 적용했을시, 상위 div를 무시한다. <br>
 
 ```html
 position : fixed;
@@ -259,7 +259,7 @@ top : 15px;     // position  위치 지정
 
 > style 태그로 조건부를 붙흰 태그를 설정가능케 . <br>
 > id나 class를 만드는 것보다 훨씬 좋은 방법이다.
-* first-child/ last-child
+* first-child/ last-child 
 * nth-child(**옵션)
     - n을 사용해 규칙적용 가능.
     - even, odd  
@@ -267,6 +267,48 @@ top : 15px;     // position  위치 지정
 * input의 옵션들도 정할 수 있음.
     - [~"..."] : ... 문자열을 포함한 모든것.
     - [type = ""/ placeholder = ""] 등
+
+🤞 주의!! <br>
+```css
+.fruits p:nth-child(1){
+    color : red;
+}
+<div class = "fruits">
+        <div>딸기</div>
+        <p>망고</p>
+        <p>오렌지</p>
+        <span>사과</span>
+    </div>
+```
+> 1. fruits의 첫번째 자식 요소가 p태그가 아니기 때문에 선택되지 않는다!!
+
+```css
+box-group div:first-child{
+    color : red;
+    font-weight : bold;
+}
+<div class = "box-group">
+        <div>1</div>
+        <div>2</div>
+        <div>3
+            <div>3-1</div>
+            <div>3-2</div>
+            <div>3-3</div>
+        </div>
+    </div>
+
+```
+해결 👇
+```css
+.box-group>div:first-child{
+    color : red;
+    font-weight : bold;
+}
+```
+> 2. 후손 선택자가 모두 선택이 되기 때문에 1과 3-1 모두 css처리된다!!<br>
+> (1만 되는거아님!) <br>
+> but, 자식 선택자로 선택해주면 해결 가능.
+
 
 [관련링크 - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
@@ -289,6 +331,9 @@ top : 15px;     // position  위치 지정
 
 > 여러 태그를 조합해, 속성 찾기 <br>
 > 원하는 만큼 자세히 부모들을 적어서 세부적으로 표시할 수 있다.
+
+🤞 주의!! <br>
+* selector로 선택은, 두번째 자식까지만 허용된다. 
 
 ![selector](/Image/html/s5.PNG)
 
