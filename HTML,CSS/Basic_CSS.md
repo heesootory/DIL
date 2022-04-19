@@ -18,6 +18,22 @@
     - [position: absolute](#position-absolute)
   - [Pseudo Selector](#pseudo-selector)
   - [Conbinator](#conbinator)
+  - [State](#state)
+    - [active](#active)
+    - [hover](#hover)
+    - [focus](#focus)
+    - [visited](#visited)
+    - [focus-within](#focus-within)
+    - [조합 가능!!](#조합-가능)
+  - [pseudo element](#pseudo-element)
+    - [placeholder](#placeholder)
+    - [selection](#selection)
+      - [first-letter, first-line](#first-letter-first-line)
+  - [custom property(색상을 변수로 지정!)](#custom-property색상을-변수로-지정)
+  - [Transition](#transition)
+    - [ease function](#ease-function)
+  - [Transformations](#transformations)
+  - [animation](#animation)
 
 <br><br>
 
@@ -259,7 +275,7 @@ top : 15px;     // position  위치 지정
 
 > style 태그로 조건부를 붙흰 태그를 설정가능케 . <br>
 > id나 class를 만드는 것보다 훨씬 좋은 방법이다.
-* first-child/ last-child 
+* first-child/ last-child - 형제관계(동족 태그랑 상관없음) 들중 첫번쨰와 마지막!
 * nth-child(**옵션)
     - n을 사용해 규칙적용 가능.
     - even, odd  
@@ -347,8 +363,277 @@ box-group div:first-child{
 > 동일한 계층의 두 엘리먼트에서 하나 다음에 있는 태그를 칭할때 <br>
 > -> "+" (p + span = p다음에 있는 같은 계층의 span)
 
+<br>
+
+---
+
+## State
+
+![state](/Image/css/s.PNG)
+
+### active
+
+```css
+    button: active{
+        background-color: tomato;
+    }
+
+<button>Hello</button>
+```
+
+> 버튼을 누를시 tomato 색상으로 변함.
+
+### hover
+
+> 마우스가 올라갔을때, 변화.
+
+### focus
+
+> active와 비슷해 보이지만, 키보드로 선택되었을때, 변화. <br>
+
+![focus](/Image/css/s1.PNG)
+
+🤞 주의!🤞  <br>
+<mark>active</mark>는 누르는 순간에만, 변화가 있는데, <mark>focus</mark>는 키보드의 입력을 기다리기 때문에, 다른 곳을 누르기 전까지 변화가 유지됨.
+
+### visited
+
+> 링크에만 적용됨. 방문 했던 사이트 변화.
+
+```css
+    a:visited{
+        color : tomato;
+    }
+
+<a href="https://apple.com>Go To apple</a>
+```
+
+### focus-within
+
+> focusd 된 자식을 가진 부모 엘리먼트에 적용!
+
+![focus](/Image/css/s2.PNG)
+![focus](/Image/css/s3.PNG)
 
 
+### 조합 가능!!
+
+```css
+ form:hover input{          
+            border-color: seagreen;
+        }
+
+ <form>
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+</form>
+```
+>form 영역에 hover될 경우, input이 변함.
+
+```css
+ form:hover input:focus{          
+            border-color: seagreen;
+        }
+
+ <form>
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+</form>
+```
+> 마우스도 form안에 있는상태에서, input이 키보드 입력을 받을준비가 될때, 변화<br>
+>-> 두 가지 조건을 모두 충족시켜야함!
+
+<br>
+
+---
+
+## pseudo element
+
+### placeholder
+
+>placeholder만 변경하고 싶을때, "::" 두 개사용.
+
+![focus](/Image/css/s5.PNG)
+
+### selection
+>"::" 두 개사용.
+
+![focus](/Image/css/s4.PNG)
+
+#### first-letter, first-line
+> 첫 글자만, 첫 줄만 변경
+
+<br>
+
+---
+
+## custom property(색상을 변수로 지정!)
+
+* :root{} 안에 변수와 함께 정의.
+* 변수 이름은 공백이 없이, 공백은 -로 채워줌.
+* 사용할때는 변수처럼 var(변수명)
+
+![focus](/Image/css/s6.PNG)
+
+<br>
+
+---
+
+## Transition
+
+> state 상태를 애니메이션처럼 변화시키는 것.
+* 항상 state 없는 속성에 붙히기.
+* transition 어떤걸? 몇초? 어떻게?
+* transition에서 변화시킬 속성은 state쪽에 존재해야함.
+
+```css
+        a{
+            color:wheat;
+            background-color: tomato;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 55px;
+            transition: background-color 1s ease-in-out, color 1s ease-in-out;
+        }
+        a:hover{
+            color: tomato;
+            background-color: wheat;
+        }
+
+<a href="#">Go home</a>
+```
+
+```css
+        a{
+            color:wheat;
+            background-color: tomato;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 55px;
+            transition: all 3s ease-in-out;    
+        }
+        a:hover{
+            color: tomato;
+            background-color: wheat;
+        }
+
+<a href="#">Go home</a>
+```
+> "all"이라고 지정할시, a{} -> a:hover{}로 전부다 (여기선 background-color와 color뿐)을 변경.
+<br>
+
+### ease function
+
+> 애니메이션 되는 방식.
+
+[공식문서](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)
+
+* 기본요소
+  - linear
+  - ease
+  - ease-in
+  - ease-out
+  - ease-in-out
+* cubic-bezier<br>
+    : 자기만의 애니메이션 만들수 있음.
+
+<br>
+
+---
+
+## Transformations
+
+> 다른 형제들의 위치를 완전 무시하고, 적용될 속성만 변화.
+
+* 회전
+  - rotateX(30deg) - deg:각도
+  - rotateY(50deg)
+  - rotateZ(80deg)
+* 크기
+  - scaleX(2) : x축방향으로 두배키우기
+  - scale(2,2): x,y축 모두 두배키우기
+  - scale(4) : 그냥 4배 키우기
+* 옮기기
+  - translateX(-60px) : 왼쪽으로 60 픽셀 옮기기.
+
+```css
+    img{
+        transform: scale(0.4);
+    }
+```
+[공식문서](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+
+<br>
+
+---
+
+## animation
+
+> 애니메이션 만들기!!
+* keyframes 애니메이션명{from{} to{}} 형식으로 제작.
+* %로 진행단계 설정도 가능.(step에 제한 없음)
+* 애니메이션될 태그에 "animation: 애니메이션명 진행시간 방식 (infinite)" 속성값 설정. <br>
+-> transition과 같은 방식으로 설정.
+
+[추천링크](https://animista.net/)
+
+```html
+<style>
+        @keyframes supersexyCoinFlip{
+            from{
+                transform:rotateX(0);
+            }
+            to{
+                transform:rotateX(360deg);
+            }
+        }
+        img{
+            border: 5px solid black;
+            border-radius: 50%;
+            animation: supersexyCoinFlip 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="image/me1.jpg"/>
+</body>
+</html>
+```
+```html
+ <style>
+        @keyframes supersexyCoinFlip{
+            0%{
+                transform:rotateY(0);
+            }
+            25%{
+                transform: scale(2);
+                 border-radius: 0px;
+            }
+            50%{
+                transform:rotateY(180deg) translateY(-100px);
+                border-color: tomato;
+            }
+            75%{
+                transform: scale(5);
+                 border-radius: 20px;
+            }
+            100%{
+                transform:rotateY(0);
+            }
+        }
+        img{
+            border: 5px solid black;
+            border-radius: 50%;
+            width: 300px;
+            animation: supersexyCoinFlip 5s ease-in-out infinite;
+        }
+    </style>
+```
 
 
 
