@@ -55,6 +55,18 @@ setInterval(getClock, 1000);
 <br>
 
 
+* arr.length : 배열의 길이.
+* Math.round(1.1234) : 반올림.
+* Math.ceil(1.7) : 올림
+* Math.floor(1,34) : 내림.
+
+<br>
+
+* Math.Random   : 0 ~ 1의 수 랜덤.(0이상 1미만)
+```js
+Math.floor(Math.Random()*10)    // 0~9까지의 수중 랜덤으로 나옴
+```
+
 
 
 

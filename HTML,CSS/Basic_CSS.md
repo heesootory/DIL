@@ -91,7 +91,7 @@ style 태그를 이용해서, 꼭 head에 넣어주기!
 <span style = "background-color: #ffdce0"> **대부분이 block 구조이다!!!**</span>
 
 따라서, block 구조가 아닌 대표적인 예들만 외워가자!<br>
-ex) span, a, img, code 등...
+ex) span, a, img, input 등...
 
 #### display 태그를 이용해서 서로 변경가능
 ```html
