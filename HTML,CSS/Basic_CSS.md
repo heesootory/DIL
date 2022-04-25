@@ -34,6 +34,7 @@
     - [ease function](#ease-function)
   - [Transformations](#transformations)
   - [animation](#animation)
+  - [Media Queries](#media-queries)
 
 <br><br>
 
@@ -548,9 +549,10 @@ box-group div:first-child{
 ## Transformations
 
 > 다른 형제들의 위치를 완전 무시하고, 적용될 속성만 변화.
+> rotateX,Y,Z 에 설정한 축이 회전축!
 
 * 회전
-  - rotateX(30deg) - deg:각도
+  - rotateX(30deg) - deg:각도   : x를 기준축으로 30도 회전
   - rotateY(50deg)
   - rotateZ(80deg)
 * 크기
@@ -634,6 +636,23 @@ box-group div:first-child{
         }
     </style>
 ```
+
+
+<br>
+
+---
+
+## Media Queries
+
+```css
+
+```
+
+
+
+
+
+
 
 
 
