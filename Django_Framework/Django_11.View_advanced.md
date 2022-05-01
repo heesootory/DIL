@@ -34,7 +34,7 @@
  
 ---
 
-## View 에서 요청받기
+## Function based View 로 요청받기
 
 > 요청은 크게 3가지가 있다고 볼 수 있는데,
 > 
@@ -128,5 +128,20 @@
 ![view](/Image/Django/v20.PNG)
 
 > request.method를 이용해서, get인지, post인지에 따라 분기 처리 가능.
+
+<br>
+<br>
+<br>
+ 
+---
+
+## Class based View 로 요청받기
+
+공식문서 - 
+[https://docs.djangoproject.com/en/4.0/ref/class-based-views/](https://docs.djangoproject.com/en/4.0/ref/class-based-views/)
+
+
+
+
 
 
