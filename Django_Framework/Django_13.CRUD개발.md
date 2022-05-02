@@ -61,3 +61,39 @@
 
 ![CRUD](/Image/Django/c4.PNG)
 
+<br>
+<br>
+<br>
+<br>
+
+
+## Create로 데이터 생성하기.
+
+![CRUD](/Image/Django/c5.PNG)
+
+### Create 참고
+* 사용자에게 입력 받는 데이터 
+    - 게시글 
+    - 댓글
+* 시스템에서 생성하는 데이터 : client의 작성이 필요 x.
+    - 조회수
+    - 생성일자
+
+![CRUD](/Image/Django/c6.PNG)
+![CRUD](/Image/Django/c7.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -103,3 +103,14 @@
 
 ![view](/Image/Django/t20.PNG)
 > 현재 많은 posts 페이지들이 중복되고 있다.
+
+
+* block : 하위 html에서 어디에 코드를 넣어줄 것인가.
+
+![view](/Image/Django/t21.PNG)
+* base.html : 기본 포맷을 하는 역할을 하나 만들어 주고, 중복이 안되는 부분만 태그를 이용해서 수정한다!
+
+![view](/Image/Django/t22.PNG)
+> 굉장히 많은 중복을 없앨 수 있음!!!
+> 
+> ![view](/Image/Django/t23.PNG)
