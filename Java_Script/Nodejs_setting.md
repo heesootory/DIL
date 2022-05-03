@@ -1,0 +1,250 @@
+# Nodejs setting
+
+
+<br>
+
+---
+
+## index
+<!-- TOC -->
+
+- [Nodejs setting](#nodejs-setting)
+  - [index](#index)
+  - [Nodejs 이란?](#nodejs-이란)
+  - [NPM 이란?](#npm-이란)
+  - [json이란??](#json이란)
+  - [Installing Express](#installing-express)
+    - [scripts 만들기](#scripts-만들기)
+    - [서버 구축(express 설치)](#서버-구축express-설치)
+    - [npm install 패키지](#npm-install-패키지)
+      - [주의점!](#주의점)
+    - [dependencies](#dependencies)
+    - [node_modules](#node_modules)
+    - [package-lock.json](#package-lockjson)
+    - [공유시,](#공유시)
+  - [The tower of Babel](#the-tower-of-babel)
+    - [devDependencies](#devdependencies)
+      - [dependencies vs devDependencies](#dependencies-vs-devdependencies)
+    - [config파일 생성 & preset 다운](#config파일-생성--preset-다운)
+  - [Nodemon](#nodemon)
+    - [Nodemon 설치](#nodemon-설치)
+    - [express & Nodemon 사용하기.](#express--nodemon-사용하기)
+
+<!-- /TOC -->
+
+
+
+<br>
+
+---
+
+## Nodejs 이란?
+
+> 크롬v8 자바스트립트 엔진으로 빌드 된 자바스크립트 런타임.
+
+* 브라우저 밖에서도 돌아가는 자바스크립트.
+* 모든 컴퓨터에 js는 내장되어있음.
+* 브라우저만 존재한다면 js는 가능함.
+* 브라우저 외부 밑 다른 곳에서도 js를 사용하기 위해 NodeJS가 고안.
+
+![js](/Image/js/n.PNG)
+![js](/Image/js/n1.PNG)
+
+<br>
+
+## NPM 이란?
+
+> js를 위한 패캐지 매니저
+(npm과 비슷한 것으로 yarn이 있다.)
+> NodeJS와 같이 사용하며, 상호작용이 가능하게 해줌.
+> NodeJS와 같이 설치됨으로, NodeJS설피하면 모두 사용가능.
+
+* 개발에 필요한 패키지들들 쉽게 다운받고, 연결시켜줌.
+    (ex. npm install express)
+
+
+
+![js](/Image/js/n2.PNG)
+> 정상 설치 시.
+
+
+## json이란??
+
+> 개발자가 파일에 정보를 저장하기 위해 만든 방식 중 하나.
+
+* 항상 기본 파일로 "package.json"이란 이름으로 설정됨.
+* package.json 만들기
+```bash
+npm init
+```
+![js](/Image/js/n4.PNG)
+> 만들때 많은 정보들을 기입하라하는데, 결국 텍스트 파일이고, 수정이 가능하므로, 걱정할 필요없이 작성하고 enter~enter~~.
+
+![js](/Image/js/n5.PNG)
+> 작성한대로, 텍스트 파일로 만들어짐.
+> 필요없는거 지우고, 수정해도 상관없다!
+
+*  main: 프로젝트의 대표 파일이 뭔지!<br>
+        우리가 만들고 배포한 package를 다른 사람들이 설피하면 main을 사용하게 됨.
+
+![js](/Image/js/n6.PNG)
+> main 파일에 있는것 처럼, index.js파일 하나 만들어주면 기본 프로젝트 생성끝! 
+
+
+## Installing Express
+
+### scripts 만들기
+
+> 우린 node index.js라는 명령어로 index파일을 실행 시킬수 있지만,
+> 
+>  그 이전에 다른 파일을 실행시키고 싶을 수도 있으므로, 그런식으로
+> 
+>  실행시키지 않고, package.json파일을 통해 실행시킨다!
+
+![js](/Image/js/n7.PNG)
+![js](/Image/js/n8.PNG)
+```bash
+npm run 명령어
+```
+
+> scripts에는 우리가 만들고 싶은 명령어를 만들고, 그에 해당하는 명령을 연결시킬 수 있다!!
+> 콘솧에서 내가 만든 script를 사용한다!
+> 위와 같이 node명령과 똑같이 실행되는 걸 볼 수 있다.
+> 나중에는 웹사이트 빌드, 서버 배포, html,css 실행 등..여러가지를 실행시키는 명령들의 집합이 될 장소이다.
+
+* 프로젝트 폴더 안에서만 사용가능!
+
+### 서버 구축(express 설치)
+
+```bash
+npm i express
+```
+
+```bash
+npm install express
+```
+
+* install 명령은 i 로 해도 가능.
+  
+![js](/Image/js/n9.PNG)
+![js](/Image/js/n10.PNG)
+
+### npm install 패키지
+
+> 패키지에 필요한 모든 파일들을 다운로드.
+
+#### 주의점!
+> npm i는 package.json -> dependencies를 변경시킬 수 있으므로, 항상 package.json을 잘 저장하고 실행시키기. 
+> 버젼 충돌이 일어날 수 있다!!
+
+### dependencies
+
+> 어떤 프로젝트/패키지가 작동되기 위한 패키지들을 말함.
+> 
+> 그래서 우리 프로젝트에도 필요한 패키지인 express가 생성됨.
+> 
+> node_modules에 있는 많은 패키지들은 또 express를 위한 
+> 
+> 패키지들이고, 또 각 패키지들이 필요한 패키지들이 계속 
+> 
+> chain처럼 필요한 패키지들을 모두 저장해놓은 곳이 
+> node_modules.
+
+* 우리 프로젝트의 package.json-> dependencies에 express가 필요하다고 명시만 해놓으면, node_modules를 전부 삭제한뒤, npm install(i) 만 명령해도 필요한 모든 패키지들을 동일하게 다운 받음!
+
+![js](/Image/js/n11.PNG)
+
+### node_modules
+
+> 패키지들의 package.json-> dependencies에 명시된 패키지들은 모두 필요한 패키지들 이므로, 모든 패키지들을 저장해놓은 폴더.
+
+* node_modules은 결국 프로젝트의  package.json-> dependencies에 명시된 필요한 패키지를 모두 받기 때문에,  package.json-> dependencies에만 잘 명시를 해준다면, node_modules를 공유할 필요가 없음. 따라서, 깃헙에 올릴 필요 없으므로, .gitignore에 명시.
+
+![js](/Image/js/n12.PNG)
+
+### package-lock.json
+
+> 우리의 패키지들을 안전하게 관리.
+> 패키지가 수정됬는지, 해시값으로 체크해주고 관리함.
+
+
+### 공유시,
+
+> index.js/ package.json / package-lock.json 파일만 공유해주고, 다른 사람이 "npm i" 만 해주면, 우리와 똑같은 버전의모듈을 설치할 수 있음.
+
+
+## The tower of Babel
+
+> 우리가 작성한 js를 최신 js로  컴파일 해줌.
+> 버젼마다 다르게 쓸 수 있는 js를 최신버젼의 js로
+> NodeJS가 우리가 작성한 js를 이해하도록 컴파일.
+> 모두가 이해할 수 있는 js로.
+
+
+[https://babeljs.io/setup#installation](https://babeljs.io/setup#installation)
+
+![js](/Image/js/n13.PNG)
+> nodejs용 다운
+
+
+```bash
+npm install --save-dev @babel/core
+```
+
+![js](/Image/js/n14.PNG)
+
+### devDependencies
+
+> 개발자에게 필요한 dependencies를 뜻함.
+
+* 설치할 때의 명령어를 보면, "--save-dev"라는 명령이 있는데, 이게 devDependencies로 저장하라는 의미. 이게 없으면, dependencies로 저장된다.
+
+#### dependencies vs devDependencies
+
+* dependencies :  프로젝트가 작동되기 위해 필요한 패키지들.
+* devDependencies : 개발자가 개발을 위해 필요한, 패키지들.
+
+> 중요한건 package.json에는 단순히 텍스트로 명시할뿐, 결국은 
+> 
+> node_modules에 필요한 패키지들이 다 저장되므로, 
+> 
+> dependencies와devDependencies간의 요소들을 마구 옮겨도 
+> 
+> 동작되는것과 무관!.
+
+### config파일 생성 & preset 다운
+
+![js](/Image/js/n15.PNG)
+![js](/Image/js/n16.PNG)
+
+* preset: 거대한 플러그인이라고 생각하면 됨.
+
+![js](/Image/js/n17.PNG)
+
+
+
+
+## Nodemon
+
+> 우리가 만든 파일이 수정되는 걸 감시해주는 패키지.
+> 수정시마다 저장을 해주면, 자동으로 컴파일 해준다!
+> npm run 명령어를 수정할때마다 쳐줄 필요 x.
+
+### Nodemon 설치
+
+```bash
+npm install @babel/core @babel/node --save-dev
+```
+
+```bash
+npm i nodemon --save-dev
+```
+
+![js](/Image/js/n18.PNG)
+![js](/Image/js/n19.PNG)
+> devDependencies 에 nodemon 추가됨.
+> scripts 명령어 바꿔주기. -> nodemon이 동작될 수 있게
+
+### express & Nodemon 사용하기.
+
+![js](/Image/js/n20.PNG)
