@@ -94,9 +94,25 @@
 * views.py : 요청 받을 함수 구성.
 * index.html : posts폴더 아래가 아닌, templates 폴더 아래 생성.
 * posts앱단위 urls.py : 앱단위 url의 폴더의 app_name을 만들면, index.html의 태그에서 인식 가능.
-> {% url 'app_name:path의 name'%}
-* 프젝단위 urls.py : include 안에, 앱단위의 app_name을 namespace에 작성.<br> (이건 구별을 위함이지, 동작을 위함은 아닌것 같다...) 
-* index의 name은 path에 들어간 이름으로, html 태그가 이용 가능한 이름.<br> (path('', post_list_view, name='post-list')처럼!)
+
+#### URL 별칭 = name, namespace, app_name
+
+* html파일에서 태그와 함께 쉽게 사용할 수 있는 별칭을 만듬
+
+* url의 별칭을 사용해서, 손쉽게 수정하고, 사용가능!
+
+* 일반적인 url 별칭은 "name".
+* 앱단위 urls.py파일(큰 가지로 들어가는 url)의 별칭은 "namespace".
+* app_name 은 결국 app의 별칭이므로, namespace와 동일하게 해주자.
+
+>> name은 url 구분, namespace는 앱의 url 구분!
+
+* url에 namespace와 name을 혼용해서 사용가능.
+
+> {% url 'posts:post-list' %}
+
+> -> 위에서 사용된 이 주소는 url 'namespace:name'이 사용됨.
+
 
 
 ### 상속관련 태그들 구현하기.
