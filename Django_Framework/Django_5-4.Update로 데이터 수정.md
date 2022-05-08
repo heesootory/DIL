@@ -6,7 +6,17 @@
 
 ## index
 
+<!-- TOC -->
 
+- [Update](#update)
+  - [index](#index)
+  - [Update - GET요청](#update---get요청)
+    - [원래 존재하는 글, 그림 불러오기](#원래-존재하는-글-그림-불러오기)
+  - [Update - POST요청](#update---post요청)
+    - [문제 : 수정시마다 새로운 이미지가 media폴더에 계속 쌓이기만함.](#문제--수정시마다-새로운-이미지가-media폴더에-계속-쌓이기만함)
+    - [get_object_or_404 로 받기](#get_object_or_404-로-받기)
+
+<!-- /TOC -->
 
 <br>
 
