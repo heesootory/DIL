@@ -18,6 +18,7 @@
     - [index 화면 구성 & 태그 활용(templates Engine 사용)](#index-화면-구성--태그-활용templates-engine-사용)
       - [URL 별칭 = name, namespace, app_name](#url-별칭--name-namespace-app_name)
     - [상속관련 태그들 구현하기.](#상속관련-태그들-구현하기)
+  - [template 사용법](#template-사용법)
 
 <!-- /TOC -->
 
@@ -143,3 +144,8 @@
 > 굉장히 많은 중복을 없앨 수 있음!!!
 > 
 > ![view](/Image/Django/t23.PNG)
+
+## template 사용법
+
+* {% %} : template 태그를 사용할때
+* {{}} : template 에 들어온 데이터를 출력할때

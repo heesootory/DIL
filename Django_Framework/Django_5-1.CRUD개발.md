@@ -5,7 +5,16 @@
 ---
 
 ## index
+<!-- TOC -->
 
+- [CRUD](#crud)
+  - [index](#index)
+  - [CRUD란?](#crud란)
+      - [이 때, 서버는 굳이 왜 존재하는가??](#이-때-서버는-굳이-왜-존재하는가)
+  - [Create로 데이터 생성하기.](#create로-데이터-생성하기)
+    - [Create 참고](#create-참고)
+
+<!-- /TOC -->
 
 
 <br>
