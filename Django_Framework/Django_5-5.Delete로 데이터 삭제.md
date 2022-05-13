@@ -6,7 +6,14 @@
 
 ## index
 
+<!-- TOC -->
 
+- [Delete](#delete)
+  - [index](#index)
+  - [Delete - GET요청](#delete---get요청)
+  - [POST요청 - 실제 데이터 삭제](#post요청---실제-데이터-삭제)
+
+<!-- /TOC -->
 
 <br>
 

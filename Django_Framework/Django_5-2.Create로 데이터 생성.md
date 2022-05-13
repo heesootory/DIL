@@ -99,6 +99,9 @@
 
 * writer = request.user
 > 작성자를 넣을 수 잇는데, 현재 admin에 로그인이 되어 있지 않다면, 에러가 뜬다.
+> 
+> 현재 로그인되어있는 사용자의 id가 request 정보에 포함되서 넘어온다고 할 수 있다.
+> 
 > 로그인 된 상태로, admin페이지로 들어가 데이터가 저장된지 확인!!
 ![CRUD](/Image/Django/c14.PNG)
 ![CRUD](/Image/Django/c15.PNG)

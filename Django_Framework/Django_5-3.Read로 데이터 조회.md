@@ -58,6 +58,11 @@
 [공식문서(설치) - https://django-debug-toolbar.readthedocs.io/en/latest/installation.html](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
 
 
+
+
+
+
+
 ## index에 데이터 렌더링하기.
 
 > model에서 가져온 객체를 index에서 이용해서, 실제 인스타 홈처럼 list형태로 보여지게 만들기.
