@@ -22,7 +22,7 @@ $ mkdir dir명
 > 파이썬 설치
 
 ```zsh
-$ brew install python@10.4
+$ brew install python@3.10
 ```
 
 > 파이썬 버젼 확인
@@ -34,19 +34,19 @@ $ python -V
 > 파이썬 패키지 설치, 패키지 업그레이드
 
 ```zsh
-$ python10.4 -m pip install --user --upgrade pip
+$ python3.10 -m pip install --user --upgrade pip
 ```
 
 > 파이썬 가상 환경 설치
 
 ```zsh
-$ python10.4 -m pip install --user virtualenv
+$ python3.10 -m pip install --user virtualenv
 ```
 
 > 가상환경 폴더 생성 
 
 ```zsh
-$ python3.9 -m venv venv
+$ python3.10 -m venv venv
 ```
 
 >  가상환경 실행, 활성화
@@ -162,7 +162,19 @@ $ django-admin startapp posts
 > api를 사용한 코드는 결국 api_view라는 걸 사용해서, 자동으로 랜더링을 도와주게 된다. 따라서 가장 큰 차이는 랜더링 코드를 삽입의 여부가 들어 있는 return문의 차이이다.
 
 
+## class 기반으로 만들기.
 
+![s](/Image/Django/e20.PNG)
+![s](/Image/Django/e21.PNG)
+![s](/Image/Django/e22.PNG)
+![s](/Image/Django/e23.PNG)
+![s](/Image/Django/e24.PNG)
+
+* class 안의 get요청의 함수를 만들어서 구현.
+
+* 함수안의 self는 class기반이므로, 기본적으로 self를 넣어줘야 함.
+
+* 
 
 
 
