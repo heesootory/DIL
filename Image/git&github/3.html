@@ -1,0 +1,607 @@
+<!doctype html>
+<html><head><title data-rh="true">Git/Github Workflow</title><link data-rh="true" rel="canonical" href="https://velog.io/@jm1225/GitGithub-Workflow"/><meta data-rh="true" property="fb:app_id" content="203040656938507"/><meta data-rh="true" name="description" content="Github에서 버전을 관리하기 위한 Git에 대하여 설명하고 workflow를 이해한다."/><meta data-rh="true" property="og:url" content="https://velog.io/@jm1225/GitGithub-Workflow"/><meta data-rh="true" property="og:type" content="article"/><meta data-rh="true" property="og:title" content="Git/Github Workflow"/><meta data-rh="true" property="og:description" content="Github에서 버전을 관리하기 위한 Git에 대하여 설명하고 workflow를 이해한다."/><meta data-rh="true" property="og:image" content="https://velog.velcdn.com/images/jm1225/post/3aa9d718-f88c-4d89-848d-4eadef08b561/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%2C%202022-02-21%2020-11-41.png"/><meta data-rh="true" name="twitter:card" content="summary_large_image"/><meta data-rh="true" name="twitter:title" content="Git/Github Workflow"/><meta data-rh="true" name="twitter:description" content="Github에서 버전을 관리하기 위한 Git에 대하여 설명하고 workflow를 이해한다."/><meta data-rh="true" name="twitter:image" content="https://images.velog.io/images/jm1225/post/3aa9d718-f88c-4d89-848d-4eadef08b561/스크린샷, 2022-02-21 20-11-41.png"/><style data-styled="" data-styled-version="5.3.3">.cbEpmK{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;font-weight:bold;cursor:pointer;outline:none;border:none;color:white;background:var(--primary1);color:var(--button-text);border-radius:4px;padding-top:0;padding-bottom:0;height:2rem;padding-left:1.25rem;padding-right:1.25rem;font-size:1rem;}/*!sc*/
+.cbEpmK:hover,.cbEpmK:focus{background:var(--primary2);}/*!sc*/
+.sc-pVTFL + .sc-pVTFL{margin-left:0.5rem;}/*!sc*/
+.cbEpmK:disabled{cursor:not-allowed;background:var(--bg-element4);color:var(--text3);}/*!sc*/
+.cbEpmK:disabled:hover{background:var(--bg-element4);color:var(--text3);}/*!sc*/
+data-styled.g10[id="sc-pVTFL"]{content:"cbEpmK,"}/*!sc*/
+body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",나눔고딕,"Nanum Gothic","Noto Sans KR","Noto Sans CJK KR",arial,돋움,Dotum,Tahoma,Geneva,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--text1);box-sizing:border-box;}/*!sc*/
+*{box-sizing:inherit;}/*!sc*/
+code{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas,'Courier New', monospace;}/*!sc*/
+input,button,textarea{font-family:inherit;}/*!sc*/
+html,body,#root{height:100%;}/*!sc*/
+body{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+@media (prefers-color-scheme:dark){body{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}}/*!sc*/
+body[data-theme='light']{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+body[data-theme='dark']{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}/*!sc*/
+data-styled.g12[id="sc-global-gYCCRU1"]{content:"sc-global-gYCCRU1,"}/*!sc*/
+.kMMgG{height:2rem;padding-left:1rem;padding-right:1rem;font-size:1rem;border-radius:1rem;background:none;border:none;outline:none;font-weight:bold;word-break:keep-all;background:var(--bg-element5);color:var(--button-text);-webkit-transition:0.125s all ease-in;transition:0.125s all ease-in;cursor:pointer;}/*!sc*/
+.kMMgG:hover{background:var(--bg-element6);}/*!sc*/
+.kMMgG:focus{box-shadow:0px 2px 12px #00000030;}/*!sc*/
+data-styled.g16[id="sc-crHmcD"]{content:"kMMgG,"}/*!sc*/
+.eeKvZX{width:1728px;margin-left:auto;margin-right:auto;}/*!sc*/
+@media (max-width:1919px){.eeKvZX{width:1376px;}}/*!sc*/
+@media (max-width:1440px){.eeKvZX{width:1024px;}}/*!sc*/
+@media (max-width:1056px){.eeKvZX{width:calc(100% - 2rem);}}/*!sc*/
+data-styled.g18[id="sc-bqiRlB"]{content:"eeKvZX,"}/*!sc*/
+.kMpGa{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;font-weight:bold;color:var(--text1);font-size:1.3125rem;-webkit-text-decoration:none;text-decoration:none;font-family:Fira Mono,monospace;}/*!sc*/
+@media (max-width:1024px){.kMpGa{font-size:1.125rem;}.kMpGa .velog-logo{height:1.25rem;}}/*!sc*/
+.kMpGa a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.kMpGa .user-logo{display:block;max-width:calc(100vw - 200px);text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:hidden;}/*!sc*/
+data-styled.g23[id="sc-bkkeKt"]{content:"kMpGa,"}/*!sc*/
+.clzaTA{color:inherit;}/*!sc*/
+.clzaTA svg{color:inherit;margin-right:1rem;width:1.75rem;height:1.75rem;display:block;}/*!sc*/
+@media (max-width:1024px){.clzaTA svg{width:1.5rem;height:1.5rem;margin-right:0.75rem;}}/*!sc*/
+data-styled.g24[id="sc-ieecCq"]{content:"clzaTA,"}/*!sc*/
+.gtFVlQ{height:4rem;}/*!sc*/
+data-styled.g28[id="sc-kfPuZi"]{content:"gtFVlQ,"}/*!sc*/
+.cyeyzU{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;background:transparent;border:none;width:2.5rem;height:2.5rem;outline:none;border-radius:50%;color:var(--text1);cursor:pointer;margin-right:0.5rem;}/*!sc*/
+.cyeyzU:hover{background:var(--slight-layer);}/*!sc*/
+.cyeyzU svg{width:1.125rem;height:1.125rem;}/*!sc*/
+data-styled.g29[id="sc-fKVqWL"]{content:"cyeyzU,"}/*!sc*/
+.iPfunI{height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/
+data-styled.g30[id="sc-bBHxTw"]{content:"iPfunI,"}/*!sc*/
+.ajzPu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;}/*!sc*/
+@media (max-width:1024px){.ajzPu .write-button{display:none;}}/*!sc*/
+data-styled.g31[id="sc-iwjdpV"]{content:"ajzPu,"}/*!sc*/
+.bpNcSg{position:fixed;top:0;background:var(--bg-element1);width:100%;z-index:10;box-shadow:0px 0 8px rgba(0,0,0,0.08);}/*!sc*/
+.bpNcSg .tab-wrapper{margin-top:-2rem;}/*!sc*/
+data-styled.g46[id="sc-caiLqq"]{content:"bpNcSg,"}/*!sc*/
+.fVREVI{padding-bottom:4rem;}/*!sc*/
+data-styled.g49[id="sc-efQSVx"]{content:"fVREVI,"}/*!sc*/
+.dnfOkc{background:var(--bg-element4);-webkit-animation:gsdBxV 1s ease-in-out infinite;animation:gsdBxV 1s ease-in-out infinite;display:inline-block;border-radius:4px;height:1em;}/*!sc*/
+.sc-khQegj + .sc-khQegj{margin-left:0.5rem;}/*!sc*/
+.cfZVGp{background:var(--bg-element4);-webkit-animation:gsdBxV 1s ease-in-out infinite;animation:gsdBxV 1s ease-in-out infinite;display:inline-block;border-radius:4px;height:1em;}/*!sc*/
+data-styled.g56[id="sc-khQegj"]{content:"dnfOkc,cfZVGp,"}/*!sc*/
+body{background:var(--bg-page2);}/*!sc*/
+data-styled.g66[id="sc-global-iqNrnJ1"]{content:"sc-global-iqNrnJ1,"}/*!sc*/
+.cFguvd{width:768px;margin-left:auto;margin-right:auto;}/*!sc*/
+@media (max-width:768px){.cFguvd{width:100%;}}/*!sc*/
+data-styled.g67[id="sc-hiwPVj"]{content:"cFguvd,"}/*!sc*/
+.fOVlQW{margin-bottom:0.875rem;background:var(--bg-tag);padding-left:1rem;padding-right:1rem;height:2rem;border-radius:1rem;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:0.875rem;color:var(--primary1);-webkit-text-decoration:none;text-decoration:none;font-weight:500;font-size:1rem;}/*!sc*/
+@media (max-width:768px){.fOVlQW{height:1.5rem;font-size:0.75rem;border-radius:0.75rem;padding-left:0.75rem;padding-right:0.75rem;margin-right:0.5rem;margin-bottom:0.5rem;}}/*!sc*/
+.fOVlQW:hover{opacity:0.75;}/*!sc*/
+data-styled.g76[id="sc-TBWPX"]{content:"fOVlQW,"}/*!sc*/
+.fCyJgT{margin-top:0.875rem;margin-bottom:-0.875rem;min-height:0.875rem;}/*!sc*/
+@media (max-width:768px){.fCyJgT{margin-top:0.5rem;margin-bottom:-0.5rem;min-height:0.5rem;}}/*!sc*/
+data-styled.g77[id="sc-jIkXHa"]{content:"fCyJgT,"}/*!sc*/
+.jwOdTX{margin-top:5.5rem;}/*!sc*/
+@media (max-width:1024px){.jwOdTX .head-wrapper{padding-left:1rem;padding-right:1rem;}}/*!sc*/
+.jwOdTX h1{font-size:3rem;line-height:1.5;-webkit-letter-spacing:-0.004em;-moz-letter-spacing:-0.004em;-ms-letter-spacing:-0.004em;letter-spacing:-0.004em;margin-top:0;font-weight:800;color:var(--text1);margin-bottom:2rem;word-break:keep-all;-webkit-transition:color 0.125s ease-in;transition:color 0.125s ease-in;}/*!sc*/
+@media (max-width:1024px){.jwOdTX{margin-top:2rem;}.jwOdTX h1{font-size:2.25rem;}}/*!sc*/
+data-styled.g79[id="sc-jOxtWs"]{content:"jwOdTX,"}/*!sc*/
+.bYuQFb{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:1rem;color:var(--text2);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}/*!sc*/
+.bYuQFb .information .username{color:var(--text1);font-weight:bold;}/*!sc*/
+.bYuQFb .information .username a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.bYuQFb .information .username a:hover{color:var(--text2);-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.bYuQFb .information .separator{margin-left:0.5rem;margin-right:0.5rem;}/*!sc*/
+@media (max-width:768px){.bYuQFb .information{font-size:0.875rem;}}/*!sc*/
+@media (max-width:768px){.bYuQFb{margin-bottom:0.75rem;}}/*!sc*/
+data-styled.g80[id="sc-hmjpVf"]{content:"bYuQFb,"}/*!sc*/
+.ggWhSV{max-height:100vh;max-width:100%;width:auto;margin:0 auto;height:auto;object-fit:contain;display:block;margin-top:2rem;}/*!sc*/
+@media (max-width:768px){.ggWhSV{margin-top:1.5rem;}}/*!sc*/
+data-styled.g82[id="sc-bTfYFJ"]{content:"ggWhSV,"}/*!sc*/
+.kJWymA{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:none;}/*!sc*/
+@media (max-width:1024px){.kJWymA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}}/*!sc*/
+data-styled.g83[id="sc-kHOZwM"]{content:"kJWymA,"}/*!sc*/
+.bnKeUP{font-size:1.125rem;color:var(--text1);-webkit-transition:color 0.125s ease-in;transition:color 0.125s ease-in;line-height:1.7;-webkit-letter-spacing:-0.004em;-moz-letter-spacing:-0.004em;-ms-letter-spacing:-0.004em;letter-spacing:-0.004em;word-break:keep-all;word-wrap:break-word;}/*!sc*/
+.bnKeUP ul b,.bnKeUP ol b,.bnKeUP p b{font-weight:400;}/*!sc*/
+.bnKeUP ul code,.bnKeUP ol code,.bnKeUP p code{background:var(--bg-inline-code);padding:0.2em 0.4em;font-size:85%;border-radius:3px;}/*!sc*/
+.bnKeUP ul a code,.bnKeUP ol a code,.bnKeUP p a code{color:var(--primary1);}/*!sc*/
+.bnKeUP a{color:var(--primary1);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.bnKeUP a:hover{color:var(--primary1);-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.bnKeUP code{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas, 'Courier New',monospace;}/*!sc*/
+.bnKeUP hr{border:none;height:1px;width:100%;background:var(--border3);margin-top:2rem;margin-bottom:2rem;}/*!sc*/
+.bnKeUP p img{display:block;margin:0 auto;max-width:100%;margin-top:3rem;margin-bottom:3rem;}/*!sc*/
+.bnKeUP h1{font-size:2.5rem;}/*!sc*/
+.bnKeUP h2{font-size:2rem;}/*!sc*/
+.bnKeUP h3{font-size:1.5rem;}/*!sc*/
+.bnKeUP h4{font-size:1.125rem;}/*!sc*/
+.bnKeUP h1,.bnKeUP h2,.bnKeUP h3,.bnKeUP h4{line-height:1.5;margin-bottom:1rem;}/*!sc*/
+.bnKeUP p + h1,.bnKeUP p + h2,.bnKeUP p + h3,.bnKeUP p + h4{margin-top:2.5rem;}/*!sc*/
+@media (max-width:768px){.bnKeUP{font-size:1rem;}.bnKeUP h1{font-size:2.25rem;}.bnKeUP h2{font-size:1.75rem;}.bnKeUP h3{font-size:1.25rem;}.bnKeUP h4{font-size:1rem;}.bnKeUP h1,.bnKeUP h2,.bnKeUP h3,.bnKeUP h4{margin-bottom:0.75rem;}.bnKeUP p + h1,.bnKeUP p + h2,.bnKeUP p + h3,.bnKeUP p + h4{margin-top:2rem;}}/*!sc*/
+.bnKeUP blockquote{margin-top:2rem;margin-bottom:2rem;border-left:4px solid var(--primary2);border-top-right-radius:4px;border-bottom-right-radius:4px;background:var(--bg-element2);margin-left:0;margin-right:0;padding:1rem;padding-left:2rem;color:var(--text1);}/*!sc*/
+.bnKeUP blockquote ul,.bnKeUP blockquote ol{padding-left:1rem;}/*!sc*/
+.bnKeUP blockquote *:first-child{margin-top:0;}/*!sc*/
+.bnKeUP blockquote *:last-child{margin-bottom:0;}/*!sc*/
+data-styled.g84[id="sc-hOGkXu"]{content:"bnKeUP,"}/*!sc*/
+.hHtnkZ.atom-one pre{background:var(--prism-bg);}/*!sc*/
+.hHtnkZ.atom-one code[class*='language-'],.hHtnkZ.atom-one pre[class*='language-']{color:var(--prism-default-text);background:none;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}/*!sc*/
+.hHtnkZ.atom-one pre[class*='language-']::-moz-selection,.hHtnkZ.atom-one pre[class*='language-'] ::-moz-selection,.hHtnkZ.atom-one code[class*='language-']::-moz-selection,.hHtnkZ.atom-one code[class*='language-'] ::-moz-selection{text-shadow:none;background:var(--prism-selection-bg);}/*!sc*/
+.hHtnkZ.atom-one pre[class*='language-']::selection,.hHtnkZ.atom-one pre[class*='language-'] ::selection,.hHtnkZ.atom-one code[class*='language-']::selection,.hHtnkZ.atom-one code[class*='language-'] ::selection{text-shadow:none;background:var(--prism-selection-bg);}/*!sc*/
+@media print{.hHtnkZ.atom-one code[class*='language-'],.hHtnkZ.atom-one pre[class*='language-']{text-shadow:none;}}/*!sc*/
+.hHtnkZ.atom-one pre[class*='language-']{padding:1em;margin:0.5em 0;overflow:auto;}/*!sc*/
+.hHtnkZ.atom-one:not(pre) > code[class*='language-'],.hHtnkZ.atom-one pre[class*='language-']{background:var(--prism-code-block-bg);}/*!sc*/
+.hHtnkZ.atom-one:not(pre) > code[class*='language-']{padding:0.1em;border-radius:0.3em;white-space:normal;}/*!sc*/
+.hHtnkZ.atom-one .token.comment,.hHtnkZ.atom-one .token.prolog,.hHtnkZ.atom-one .token.doctype,.hHtnkZ.atom-one .token.cdata{color:var(--prism-code-1);}/*!sc*/
+.hHtnkZ.atom-one .token.punctuation{color:var(--prism-code-2);}/*!sc*/
+.hHtnkZ.atom-one .token.selector,.hHtnkZ.atom-one .token.tag{color:var(--prism-code-3);}/*!sc*/
+.hHtnkZ.atom-one .token.property,.hHtnkZ.atom-one .token.boolean,.hHtnkZ.atom-one .token.number,.hHtnkZ.atom-one .token.constant,.hHtnkZ.atom-one .token.symbol,.hHtnkZ.atom-one .token.attr-name,.hHtnkZ.atom-one .token.deleted{color:var(--prism-code-4);}/*!sc*/
+.hHtnkZ.atom-one .token.string,.hHtnkZ.atom-one .token.char,.hHtnkZ.atom-one .token.attr-value,.hHtnkZ.atom-one .token.builtin,.hHtnkZ.atom-one .token.inserted{color:var(--prism-code-6);}/*!sc*/
+.hHtnkZ.atom-one .token.operator,.hHtnkZ.atom-one .token.entity,.hHtnkZ.atom-one .token.url,.hHtnkZ.atom-one .language-css .token.string,.hHtnkZ.atom-one .style .token.string{color:var(--prism-code-5);}/*!sc*/
+.hHtnkZ.atom-one .token.atrule,.hHtnkZ.atom-one .token.keyword{color:var(--prism-code-7);}/*!sc*/
+.hHtnkZ.atom-one .token.function{color:var(--prism-code-8);}/*!sc*/
+.hHtnkZ.atom-one .token.regex,.hHtnkZ.atom-one .token.important,.hHtnkZ.atom-one .token.variable{color:var(--prism-code-9);}/*!sc*/
+.hHtnkZ.atom-one .token.important,.hHtnkZ.atom-one .token.bold{font-weight:bold;}/*!sc*/
+.hHtnkZ.atom-one .token.italic{font-style:italic;}/*!sc*/
+.hHtnkZ.atom-one .token.entity{cursor:help;}/*!sc*/
+.hHtnkZ.atom-one pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber;}/*!sc*/
+.hHtnkZ.atom-one pre.line-numbers > code{position:relative;}/*!sc*/
+.hHtnkZ.atom-one .line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;border-right:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}/*!sc*/
+.hHtnkZ.atom-one .line-numbers-rows > span{pointer-events:none;display:block;counter-increment:linenumber;}/*!sc*/
+.hHtnkZ.atom-one .line-numbers-rows > span:before{content:counter(linenumber);color:var(--prism-line-number);display:block;padding-right:0.8em;text-align:right;}/*!sc*/
+.hHtnkZ.github code,.hHtnkZ.github code[class*='language-'],.hHtnkZ.github pre[class*='language-']{color:#24292e;}/*!sc*/
+.hHtnkZ.github pre{color:#24292e;background:#f6f8fa;}/*!sc*/
+.hHtnkZ.github .token.function{color:#005cc5;}/*!sc*/
+.hHtnkZ.github .token.comment,.hHtnkZ.github .token.prolog,.hHtnkZ.github .token.doctype,.hHtnkZ.github .token.cdata{color:#969896;}/*!sc*/
+.hHtnkZ.github .token.punctuation{color:#24292e;}/*!sc*/
+.hHtnkZ.github .token.string{color:#032f62;}/*!sc*/
+.hHtnkZ.github .token.atrule,.hHtnkZ.github .token.attr-value{color:#183691;}/*!sc*/
+.hHtnkZ.github .token.property,.hHtnkZ.github .token.tag{color:#63a35c;}/*!sc*/
+.hHtnkZ.github .token.boolean,.hHtnkZ.github .token.number{color:#0086b3;}/*!sc*/
+.hHtnkZ.github .token.selector,.hHtnkZ.github .token.attr-name,.hHtnkZ.github .token.attr-value .punctuation:first-child,.hHtnkZ.github .token.keyword,.hHtnkZ.github .token.regex,.hHtnkZ.github .token.important{color:#d73a49;}/*!sc*/
+.hHtnkZ.github .token.operator,.hHtnkZ.github .token.entity,.hHtnkZ.github .token.url,.hHtnkZ.github .language-css{color:#d73a49;}/*!sc*/
+.hHtnkZ.github .token.entity{cursor:help;}/*!sc*/
+.hHtnkZ.github .namespace{opacity:0.7;}/*!sc*/
+.hHtnkZ.monokai code[class*='language-'],.hHtnkZ.monokai pre[class*='language-']{color:#f8f8f2;text-shadow:0 1px rgba(0,0,0,0.3);}/*!sc*/
+.hHtnkZ.monokai:not(pre) > code[class*='language-'],.hHtnkZ.monokai pre[class*='language-']{background:#272822;}/*!sc*/
+.hHtnkZ.monokai pre{color:#f8f8f2;text-shadow:0 1px rgba(0,0,0,0.3);background:#272822;}/*!sc*/
+.hHtnkZ.monokai .token.comment,.hHtnkZ.monokai .token.prolog,.hHtnkZ.monokai .token.doctype,.hHtnkZ.monokai .token.cdata{color:#778090;}/*!sc*/
+.hHtnkZ.monokai .token.punctuation{color:#f8f8f2;}/*!sc*/
+.hHtnkZ.monokai .namespace{opacity:0.7;}/*!sc*/
+.hHtnkZ.monokai .token.property,.hHtnkZ.monokai .token.tag,.hHtnkZ.monokai .token.constant,.hHtnkZ.monokai .token.symbol,.hHtnkZ.monokai .token.deleted{color:#f92672;}/*!sc*/
+.hHtnkZ.monokai .token.boolean,.hHtnkZ.monokai .token.number{color:#ae81ff;}/*!sc*/
+.hHtnkZ.monokai .token.selector,.hHtnkZ.monokai .token.attr-name,.hHtnkZ.monokai .token.string,.hHtnkZ.monokai .token.char,.hHtnkZ.monokai .token.builtin,.hHtnkZ.monokai .token.inserted{color:#a6e22e;}/*!sc*/
+.hHtnkZ.monokai .token.operator,.hHtnkZ.monokai .token.entity,.hHtnkZ.monokai .token.url,.hHtnkZ.monokai .language-css .token.string,.hHtnkZ.monokai .style .token.string,.hHtnkZ.monokai .token.variable{color:#f8f8f2;}/*!sc*/
+.hHtnkZ.monokai .token.atrule,.hHtnkZ.monokai .token.attr-value,.hHtnkZ.monokai .token.function{color:#e6db74;}/*!sc*/
+.hHtnkZ.monokai .token.keyword{color:#f92672;}/*!sc*/
+.hHtnkZ.monokai .token.regex,.hHtnkZ.monokai .token.important{color:#fd971f;}/*!sc*/
+.hHtnkZ.monokai .token.important,.hHtnkZ.monokai .token.bold{font-weight:bold;}/*!sc*/
+.hHtnkZ.monokai .token.italic{font-style:italic;}/*!sc*/
+.hHtnkZ.monokai .token.entity{cursor:help;}/*!sc*/
+.hHtnkZ.dracula code[class*='language-'],.hHtnkZ.dracula pre[class*='language-']{color:#ccc;background:rgb(40,41,54);}/*!sc*/
+.hHtnkZ.dracula pre[class*='language-']::-moz-selection,.hHtnkZ.dracula pre[class*='language-'] ::-moz-selection,.hHtnkZ.dracula code[class*='language-']::-moz-selection,.hHtnkZ.dracula code[class*='language-'] ::-moz-selection{text-shadow:none;background-color:#5a5f80;}/*!sc*/
+.hHtnkZ.dracula pre[class*='language-']::selection,.hHtnkZ.dracula pre[class*='language-'] ::selection,.hHtnkZ.dracula code[class*='language-']::selection,.hHtnkZ.dracula code[class*='language-'] ::selection{text-shadow:none;background-color:#5a5f80;}/*!sc*/
+.hHtnkZ.dracula:not(pre) > code[class*='language-']{border-radius:0.3em;white-space:normal;}/*!sc*/
+.hHtnkZ.dracula pre{color:#ccc;background:rgb(40,41,54);}/*!sc*/
+.hHtnkZ.dracula .limit-300{height:300px !important;}/*!sc*/
+.hHtnkZ.dracula .limit-400{height:400px !important;}/*!sc*/
+.hHtnkZ.dracula .limit-500{height:500px !important;}/*!sc*/
+.hHtnkZ.dracula .limit-600{height:600px !important;}/*!sc*/
+.hHtnkZ.dracula .limit-700{height:700px !important;}/*!sc*/
+.hHtnkZ.dracula .limit-800{height:800px !important;}/*!sc*/
+.hHtnkZ.dracula .token.comment{color:rgba(98,114,164,1);}/*!sc*/
+.hHtnkZ.dracula .token.prolog{color:rgba(207,207,194,1);}/*!sc*/
+.hHtnkZ.dracula .token.tag{color:rgba(220,104,170,1);}/*!sc*/
+.hHtnkZ.dracula .token.entity{color:rgba(139,233,253,1);}/*!sc*/
+.hHtnkZ.dracula .token.atrule{color:rgba(98,239,117,1);}/*!sc*/
+.hHtnkZ.dracula .token.url{color:rgba(102,217,239,1);}/*!sc*/
+.hHtnkZ.dracula .token.selector{color:rgba(207,207,194,1);}/*!sc*/
+.hHtnkZ.dracula .token.string{color:rgba(241,250,140,1);}/*!sc*/
+.hHtnkZ.dracula .token.property{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .token.important{color:rgba(255,121,198,1);font-weight:bold;}/*!sc*/
+.hHtnkZ.dracula .token.punctuation{color:rgba(230,219,116,1);}/*!sc*/
+.hHtnkZ.dracula .token.number{color:rgba(189,147,249,1);}/*!sc*/
+.hHtnkZ.dracula .token.function{color:rgba(80,250,123,1);}/*!sc*/
+.hHtnkZ.dracula .token.class-name{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .token.keyword{color:rgba(255,121,198,1);}/*!sc*/
+.hHtnkZ.dracula .token.boolean{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .token.operator{color:rgba(139,233,253,1);}/*!sc*/
+.hHtnkZ.dracula .token.char{color:rgba(255,135,157,1);}/*!sc*/
+.hHtnkZ.dracula .token.regex{color:rgba(80,250,123,1);}/*!sc*/
+.hHtnkZ.dracula .token.variable{color:rgba(80,250,123,1);}/*!sc*/
+.hHtnkZ.dracula .token.constant{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .token.symbol{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .token.builtin{color:rgba(255,121,198,1);}/*!sc*/
+.hHtnkZ.dracula .token.attr-value{color:#7ec699;}/*!sc*/
+.hHtnkZ.dracula .token.deleted{color:#e2777a;}/*!sc*/
+.hHtnkZ.dracula .token.namespace{color:#e2777a;}/*!sc*/
+.hHtnkZ.dracula .token.bold{font-weight:bold;}/*!sc*/
+.hHtnkZ.dracula .token.italic{font-style:italic;}/*!sc*/
+.hHtnkZ.dracula .token{color:#ff79c6;}/*!sc*/
+.hHtnkZ.dracula .langague-cpp .token.string{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .langague-c .token.string{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .language-css .token.selector{color:rgba(80,250,123,1);}/*!sc*/
+.hHtnkZ.dracula .language-css .token.property{color:rgba(255,184,108,1);}/*!sc*/
+.hHtnkZ.dracula .language-java span.token.class-name{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .language-java .token.class-name{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .language-markup .token.attr-value{color:rgba(102,217,239,1);}/*!sc*/
+.hHtnkZ.dracula .language-markup .token.tag{color:rgba(80,250,123,1);}/*!sc*/
+.hHtnkZ.dracula .language-objectivec .token.property{color:#66d9ef;}/*!sc*/
+.hHtnkZ.dracula .language-objectivec .token.string{color:#50fa7b;}/*!sc*/
+.hHtnkZ.dracula .language-php .token.boolean{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .language-php .token.function{color:#ff79c6;}/*!sc*/
+.hHtnkZ.dracula .language-php .token.keyword{color:#66d9ef;}/*!sc*/
+.hHtnkZ.dracula .language-ruby .token.symbol{color:#8be9fd;}/*!sc*/
+.hHtnkZ.dracula .language-ruby .token.class-name{color:#cfcfc2;}/*!sc*/
+.hHtnkZ.dracula pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber;}/*!sc*/
+.hHtnkZ.dracula pre.line-numbers > code{position:relative;white-space:inherit;}/*!sc*/
+.hHtnkZ.dracula .line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}/*!sc*/
+.hHtnkZ.dracula .line-numbers-rows > span{pointer-events:none;display:block;counter-increment:linenumber;}/*!sc*/
+.hHtnkZ.dracula .line-numbers-rows > span:before{content:counter(linenumber);color:#999;display:block;padding-right:0.8em;text-align:right;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar{position:relative;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar{position:absolute;top:0.3em;right:0.2em;-webkit-transition:opacity 0.3s ease-in-out;transition:opacity 0.3s ease-in-out;opacity:0;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar:hover > .toolbar{opacity:1;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar .toolbar-item{display:inline-block;padding-right:20px;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar a{cursor:pointer;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar button{background:none;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar a,.hHtnkZ.dracula div.code-toolbar > .toolbar button,.hHtnkZ.dracula div.code-toolbar > .toolbar span{color:#ccc;font-size:0.8em;padding:0.5em;background:rgba(98,114,164,1);border-radius:0.5em;}/*!sc*/
+.hHtnkZ.dracula div.code-toolbar > .toolbar a:hover,.hHtnkZ.dracula div.code-toolbar > .toolbar a:focus,.hHtnkZ.dracula div.code-toolbar > .toolbar button:hover,.hHtnkZ.dracula div.code-toolbar > .toolbar button:focus,.hHtnkZ.dracula div.code-toolbar > .toolbar span:hover,.hHtnkZ.dracula div.code-toolbar > .toolbar span:focus{color:inherit;-webkit-text-decoration:none;text-decoration:none;background-color:var(--verde);}/*!sc*/
+.hHtnkZ pre{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas, 'Courier New',monospace;font-size:0.875rem;padding:1rem;border-radius:4px;line-height:1.5;overflow-x:auto;-webkit-letter-spacing:0px;-moz-letter-spacing:0px;-ms-letter-spacing:0px;letter-spacing:0px;}/*!sc*/
+@media (max-width:768px){.hHtnkZ pre{font-size:0.75rem;padding:0.75rem;}}/*!sc*/
+.hHtnkZ img{max-width:100%;height:auto;display:block;margin-top:1.5rem;margin-bottom:1.5rem;}/*!sc*/
+.hHtnkZ iframe{width:768px;height:430px;max-width:100%;background:black;display:block;margin:auto;border:none;border-radius:4px;overflow:hidden;}/*!sc*/
+.hHtnkZ .twitter-wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-left:none;background:none;padding:none;}/*!sc*/
+.hHtnkZ table{min-width:40%;max-width:100%;border:1px solid var(--border2);border-collapse:collapse;font-size:0.875rem;}/*!sc*/
+.hHtnkZ table thead > tr > th{border-bottom:4px solid var(--border2);}/*!sc*/
+.hHtnkZ table th,.hHtnkZ table td{word-break:break-word;padding:0.5rem;}/*!sc*/
+.hHtnkZ table td + td,.hHtnkZ table th + th{border-left:1px solid var(--border2);}/*!sc*/
+.hHtnkZ table tr:nth-child(even){background:var(--bg-element2);}/*!sc*/
+.hHtnkZ table tr:nth-child(odd){background:var(--bg-page1);}/*!sc*/
+.hHtnkZ .katex-mathml{display:none;}/*!sc*/
+data-styled.g85[id="sc-dtMgUX"]{content:"hHtnkZ,"}/*!sc*/
+.dvEyfJ{width:768px;margin:0 auto;margin-top:5rem;}/*!sc*/
+@media (max-width:1024px){.dvEyfJ{padding-left:1rem;padding-right:1rem;}}/*!sc*/
+@media (max-width:768px){.dvEyfJ{width:100%;}}/*!sc*/
+data-styled.g87[id="sc-jUosCB"]{content:"dvEyfJ,"}/*!sc*/
+.unEbH{margin-top:3rem;color:var(--text1);}/*!sc*/
+.unEbH h4{font-size:1.125rem;line-height:1.5;font-weight:600;margin-bottom:1rem;}/*!sc*/
+@media (max-width:768px){.unEbH{padding-left:1rem;padding-right:1rem;}}/*!sc*/
+data-styled.g88[id="sc-jQrDum"]{content:"unEbH,"}/*!sc*/
+.gyjlTr > .buttons-wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;}/*!sc*/
+data-styled.g90[id="sc-fbyfCU"]{content:"gyjlTr,"}/*!sc*/
+.kzkpzA{resize:none;padding:1rem;padding-bottom:1.5rem;outline:none;border:1px solid var(--border4);margin-bottom:1.5rem;width:100%;border-radius:4px;min-height:6.125rem;font-size:1rem;color:var(--text1);line-height:1.75;background:var(--bg-element1);}/*!sc*/
+.kzkpzA::-webkit-input-placeholder{color:var(--text3);}/*!sc*/
+.kzkpzA::-moz-placeholder{color:var(--text3);}/*!sc*/
+.kzkpzA:-ms-input-placeholder{color:var(--text3);}/*!sc*/
+.kzkpzA::placeholder{color:var(--text3);}/*!sc*/
+@media (max-width:768px){.kzkpzA{margin-bottom:1rem;}}/*!sc*/
+data-styled.g91[id="sc-GEbAx"]{content:"kzkpzA,"}/*!sc*/
+.deWCtC{margin-top:2.5rem;}/*!sc*/
+data-styled.g102[id="sc-dkYRCH"]{content:"deWCtC,"}/*!sc*/
+.iJHaaP{position:relative;margin-top:2rem;}/*!sc*/
+@media (max-width:1024px){.iJHaaP{display:none;}}/*!sc*/
+data-styled.g104[id="sc-ilfuhL"]{content:"iJHaaP,"}/*!sc*/
+.bywXpw{position:absolute;left:-7rem;}/*!sc*/
+data-styled.g105[id="sc-uojGG"]{content:"bywXpw,"}/*!sc*/
+.cbkBIK{width:4rem;background:var(--bg-element2);border:1px solid var(--border4);border-radius:2rem;padding:0.5rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g106[id="sc-bilyIR"]{content:"cbkBIK,"}/*!sc*/
+.iyqbCU{height:3rem;width:3rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;background:var(--bg-element1);border:1px solid var(--border3);border-radius:1.5rem;color:var(--text3);cursor:pointer;z-index:5;}/*!sc*/
+.iyqbCU svg{width:24px;height:24px;}/*!sc*/
+.iyqbCU svg.share{width:20px;height:20px;}/*!sc*/
+.iyqbCU:hover{color:var(--text1);border-color:var(--text1);}/*!sc*/
+data-styled.g107[id="sc-eGPXGI"]{content:"iyqbCU,"}/*!sc*/
+.cZoPFg{margin-top:0.5rem;color:var(--text2);line-height:1;font-size:0.75rem;margin-bottom:1rem;font-weight:bold;}/*!sc*/
+data-styled.g108[id="sc-hAcGzb"]{content:"cZoPFg,"}/*!sc*/
+.deUPxO{position:relative;width:100%;z-index:5;}/*!sc*/
+.deUPxO .positioner{position:absolute;}/*!sc*/
+data-styled.g109[id="sc-kYHfwS"]{content:"deUPxO,"}/*!sc*/
+.cbQMCF{top:0;left:0;position:absolute;width:48px;height:48px;}/*!sc*/
+data-styled.g110[id="sc-xiLah"]{content:"cbQMCF,"}/*!sc*/
+.juWdTI{width:32px;height:32px;border-radius:16px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;border:1px solid var(--primary2);font-size:1.5rem;color:var(--primary2);margin-right:1rem;}/*!sc*/
+.dVjnun{width:32px;height:32px;border-radius:16px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;border:1px solid var(--primary2);font-size:1.5rem;color:var(--primary2);margin-left:1rem;}/*!sc*/
+data-styled.g115[id="sc-FNXRL"]{content:"juWdTI,dVjnun,"}/*!sc*/
+.iORQCp{cursor:pointer;background:var(--bg-element2);box-shadow:0 0 4px 0 rgba(0,0,0,0.06);width:100%;padding-left:1rem;padding-right:1rem;height:4rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.iORQCp:hover .sc-FNXRL{-webkit-animation-duration:0.35s;animation-duration:0.35s;-webkit-animation-name:dRQjsE;animation-name:dRQjsE;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;}/*!sc*/
+.jyLBky{cursor:pointer;background:var(--bg-element2);box-shadow:0 0 4px 0 rgba(0,0,0,0.06);width:100%;padding-left:1rem;padding-right:1rem;height:4rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-text-decoration:none;text-decoration:none;-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}/*!sc*/
+.jyLBky:hover .sc-FNXRL{-webkit-animation-duration:0.35s;animation-duration:0.35s;-webkit-animation-name:iyGUEJ;animation-name:iyGUEJ;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;}/*!sc*/
+data-styled.g116[id="sc-jWUzzU"]{content:"iORQCp,jyLBky,"}/*!sc*/
+.lnjQjY{-webkit-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;line-height:1;min-width:0;}/*!sc*/
+.lnjQjY .description{font-size:0.75rem;font-weight:bold;color:var(--text2);}/*!sc*/
+.lnjQjY h3{width:100%;font-size:1.125rem;color:var(--text2);line-height:1.15;margin:0;margin-top:0.5rem;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:hidden;}/*!sc*/
+@media (max-width:768px){.lnjQjY h3{font-size:1rem;}}/*!sc*/
+.fgoqqv{-webkit-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-end;-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end;line-height:1;min-width:0;}/*!sc*/
+.fgoqqv .description{font-size:0.75rem;font-weight:bold;color:var(--text2);}/*!sc*/
+.fgoqqv h3{text-align:right;width:100%;font-size:1.125rem;color:var(--text2);line-height:1.15;margin:0;margin-top:0.5rem;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:hidden;}/*!sc*/
+@media (max-width:768px){.fgoqqv h3{font-size:1rem;}}/*!sc*/
+data-styled.g117[id="sc-eFegNN"]{content:"lnjQjY,fgoqqv,"}/*!sc*/
+.iAyTnk{margin-top:3rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/
+@media (max-width:768px){.iAyTnk{-webkit-flex-direction:column-reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse;padding-left:1rem;padding-right:1rem;}}/*!sc*/
+data-styled.g118[id="sc-fmBCVi"]{content:"iAyTnk,"}/*!sc*/
+.fDnymV{min-width:0;-webkit-flex:1;-ms-flex:1;flex:1;}/*!sc*/
+.sc-lkgTHX + .sc-lkgTHX{margin-left:3rem;}/*!sc*/
+@media (max-width:768px){.fDnymV{-webkit-flex:initial;-ms-flex:initial;flex:initial;width:100%;}.sc-lkgTHX + .sc-lkgTHX{margin-left:0;margin-bottom:1.5rem;}}/*!sc*/
+data-styled.g119[id="sc-lkgTHX"]{content:"fDnymV,"}/*!sc*/
+@media (max-width:1024px){.itanDZ{padding-left:1rem;padding-right:1rem;}}/*!sc*/
+data-styled.g120[id="sc-jlRLRk"]{content:"itanDZ,"}/*!sc*/
+.gBxoyd{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:768px){.gBxoyd{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}/*!sc*/
+.gBxoyd img{display:block;width:8rem;height:8rem;border-radius:50%;object-fit:cover;box-shadow:0 0 4px 0 rgba(0,0,0,0.06);}/*!sc*/
+@media (max-width:768px){.gBxoyd img{width:5rem;height:5rem;}}/*!sc*/
+data-styled.g121[id="sc-dUbtfd"]{content:"gBxoyd,"}/*!sc*/
+.imDJFA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-left:1rem;}/*!sc*/
+.imDJFA .name{font-size:1.5rem;line-height:1.5;font-weight:bold;color:var(--text1);}/*!sc*/
+.imDJFA .name a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.imDJFA .name a:hover{color:var(--text1);-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.imDJFA .description{white-space:pre-wrap;font-size:1.125rem;line-height:1.5;margin-top:0.25rem;color:var(--text2);-webkit-letter-spacing:-0.004em;-moz-letter-spacing:-0.004em;-ms-letter-spacing:-0.004em;letter-spacing:-0.004em;}/*!sc*/
+@media (max-width:768px){.imDJFA{margin-left:0;margin-top:1rem;}.imDJFA .name{font-size:1.125rem;}.imDJFA .description{margin-top:0.5rem;font-size:0.875rem;-webkit-letter-spacing:-0.004em;-moz-letter-spacing:-0.004em;-ms-letter-spacing:-0.004em;letter-spacing:-0.004em;}}/*!sc*/
+data-styled.g122[id="sc-htJRVC"]{content:"imDJFA,"}/*!sc*/
+.eeSNkh{background:var(--bg-element3);width:100%;height:1px;margin-top:2rem;margin-bottom:1.5rem;}/*!sc*/
+@media (max-width:768px){.eeSNkh{margin-top:1rem;margin-bottom:1rem;}}/*!sc*/
+data-styled.g123[id="sc-cbTzjv"]{content:"eeSNkh,"}/*!sc*/
+.fknBCc{color:var(--text3);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/
+.fknBCc svg{cursor:pointer;width:2rem;height:2rem;}/*!sc*/
+.fknBCc svg:hover{color:var(--text1);}/*!sc*/
+@media (max-width:768px){.fknBCc svg{width:1.5rem;height:1.5rem;}}/*!sc*/
+.fknBCc a{color:inherit;display:block;}/*!sc*/
+.fknBCc a + a,.fknBCc a + svg{margin-left:1rem;}/*!sc*/
+data-styled.g124[id="sc-hjGZqJ"]{content:"fknBCc,"}/*!sc*/
+.ibUOhl{margin-top:5.5rem;}/*!sc*/
+.ibUOhl h1{padding-right:2rem;font-size:3.75rem;margin-top:0;margin-bottom:2rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/
+.ibUOhl .subinfo{font-size:1rem;}/*!sc*/
+.ibUOhl .tags{font-size:2rem;margin-top:0.875rem;}/*!sc*/
+.ibUOhl .tags .tag-skeleton + .tag-skeleton{margin-left:0.5rem;}/*!sc*/
+.ibUOhl .series{margin-top:2rem;}/*!sc*/
+.ibUOhl .thumbnail{margin-top:2rem;padding-top:52.35%;position:relative;}/*!sc*/
+.ibUOhl .thumbnail .thumbnail-skeleton{position:absolute;top:0;left:0;width:100%;height:100%;}/*!sc*/
+.ibUOhl .contents{margin-top:5rem;}/*!sc*/
+.ibUOhl .contents .line{margin-bottom:0.75rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:1.125rem;}/*!sc*/
+.ibUOhl .contents .lines + .lines{margin-top:3rem;}/*!sc*/
+@media (max-width:1024px){.ibUOhl{margin-top:2rem;}.ibUOhl h1{font-size:2.25rem;}.ibUOhl .subinfo{font-size:0.875rem;}.ibUOhl .tags{font-size:1.5rem;}}/*!sc*/
+data-styled.g127[id="sc-fIosxK"]{content:"ibUOhl,"}/*!sc*/
+@media (max-width:768px){.gVyOrP{padding-left:1rem;padding-right:1rem;}}/*!sc*/
+data-styled.g128[id="sc-gyElHZ"]{content:"gVyOrP,"}/*!sc*/
+.kobhWl{background:var(--bg-element1);border:1px solid var(--border2);padding-left:0.75rem;padding-right:0.75rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:1.5rem;border-radius:0.75rem;outline:none;}/*!sc*/
+.kobhWl svg{width:0.75rem;height:0.75rem;margin-right:0.75rem;color:var(--text3);}/*!sc*/
+.kobhWl span{font-size:0.75rem;font-weight:bold;color:var(--text3);}/*!sc*/
+data-styled.g129[id="sc-gjNHFA"]{content:"kobhWl,"}/*!sc*/
+.bZgVJT{margin-top:16rem;margin-bottom:6rem;}/*!sc*/
+@media (max-width:1024px){.bZgVJT{margin-top:8rem;margin-bottom:3rem;}}/*!sc*/
+@media (max-width:768px){.bZgVJT{margin-top:2rem;}}/*!sc*/
+data-styled.g143[id="sc-avest"]{content:"bZgVJT,"}/*!sc*/
+@-webkit-keyframes gsdBxV{0%{opacity:0.5;}50%{opacity:1;}100%{opacity:0.5;}}/*!sc*/
+@keyframes gsdBxV{0%{opacity:0.5;}50%{opacity:1;}100%{opacity:0.5;}}/*!sc*/
+data-styled.g144[id="sc-keyframes-gsdBxV"]{content:"gsdBxV,"}/*!sc*/
+body{background:var(--bg-page2);}/*!sc*/
+data-styled.g145[id="sc-global-iqNrnJ2"]{content:"sc-global-iqNrnJ2,"}/*!sc*/
+@-webkit-keyframes dRQjsE{0%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}50%{-webkit-transform:translateX(-8px);-ms-transform:translateX(-8px);transform:translateX(-8px);}100%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}}/*!sc*/
+@keyframes dRQjsE{0%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}50%{-webkit-transform:translateX(-8px);-ms-transform:translateX(-8px);transform:translateX(-8px);}100%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}}/*!sc*/
+data-styled.g146[id="sc-keyframes-dRQjsE"]{content:"dRQjsE,"}/*!sc*/
+@-webkit-keyframes iyGUEJ{0%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}50%{-webkit-transform:translateX(8px);-ms-transform:translateX(8px);transform:translateX(8px);}100%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}}/*!sc*/
+@keyframes iyGUEJ{0%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}50%{-webkit-transform:translateX(8px);-ms-transform:translateX(8px);transform:translateX(8px);}100%{-webkit-transform:translateX(0px);-ms-transform:translateX(0px);transform:translateX(0px);}}/*!sc*/
+data-styled.g147[id="sc-keyframes-iyGUEJ"]{content:"iyGUEJ,"}/*!sc*/
+body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",나눔고딕,"Nanum Gothic","Noto Sans KR","Noto Sans CJK KR",arial,돋움,Dotum,Tahoma,Geneva,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--text1);box-sizing:border-box;}/*!sc*/
+*{box-sizing:inherit;}/*!sc*/
+code{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas,'Courier New', monospace;}/*!sc*/
+input,button,textarea{font-family:inherit;}/*!sc*/
+html,body,#root{height:100%;}/*!sc*/
+body{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+@media (prefers-color-scheme:dark){body{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}}/*!sc*/
+body[data-theme='light']{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+body[data-theme='dark']{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}/*!sc*/
+data-styled.g148[id="sc-global-gYCCRU2"]{content:"sc-global-gYCCRU2,"}/*!sc*/
+body{background:var(--bg-page2);}/*!sc*/
+data-styled.g149[id="sc-global-iqNrnJ3"]{content:"sc-global-iqNrnJ3,"}/*!sc*/
+body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",나눔고딕,"Nanum Gothic","Noto Sans KR","Noto Sans CJK KR",arial,돋움,Dotum,Tahoma,Geneva,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--text1);box-sizing:border-box;}/*!sc*/
+*{box-sizing:inherit;}/*!sc*/
+code{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas,'Courier New', monospace;}/*!sc*/
+input,button,textarea{font-family:inherit;}/*!sc*/
+html,body,#root{height:100%;}/*!sc*/
+body{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+@media (prefers-color-scheme:dark){body{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}}/*!sc*/
+body[data-theme='light']{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+body[data-theme='dark']{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}/*!sc*/
+data-styled.g150[id="sc-global-gYCCRU3"]{content:"sc-global-gYCCRU3,"}/*!sc*/
+body{background:var(--bg-page2);}/*!sc*/
+data-styled.g151[id="sc-global-iqNrnJ4"]{content:"sc-global-iqNrnJ4,"}/*!sc*/
+body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",나눔고딕,"Nanum Gothic","Noto Sans KR","Noto Sans CJK KR",arial,돋움,Dotum,Tahoma,Geneva,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:var(--text1);box-sizing:border-box;}/*!sc*/
+*{box-sizing:inherit;}/*!sc*/
+code{font-family:'Fira Mono',source-code-pro,Menlo,Monaco,Consolas,'Courier New', monospace;}/*!sc*/
+input,button,textarea{font-family:inherit;}/*!sc*/
+html,body,#root{height:100%;}/*!sc*/
+body{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+@media (prefers-color-scheme:dark){body{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}}/*!sc*/
+body[data-theme='light']{--bg-page1:#F8F9FA;--bg-page2:#FFFFFF;--bg-element1:#FFFFFF;--bg-element2:#F8F9FA;--bg-element3:#E9ECEF;--bg-element4:#DEE2E6;--bg-element5:#212529;--bg-element6:#343A40;--bg-element7:#FFFFFF;--bg-element8:#FBFDFC;--bg-invert:#1E1E1E;--bg-inline-code:#E9ECEF;--bg-tag:#F8F9FA;--text1:#212529;--text2:#495057;--text3:#868E96;--text4:#CED4DA;--border1:#343A40;--border2:#ADB5BD;--border3:#DEE2E6;--border4:#F1F3F5;--primary1:#12B886;--primary2:#20C997;--destructive1:#FF6B6B;--destructive2:#FF8787;--button-text:#FFFFFF;--slight-layer:rgba(0,0,0,0.05);--opaque-layer:rgba(249,249,249,0.85);--editor-footer:#FFFFFF;--prism-bg:#fbfcfd;--prism-default-text:#24292e;--prism-selection-bg:rgba(0,0,0,0.15);--prism-code-block-bg:#fbfcfd;--prism-code-1:#969896;--prism-code-2:#24292e;--prism-code-3:#a626a4;--prism-code-4:#63a35c;--prism-code-5:#0184bc;--prism-code-6:#50a14f;--prism-code-7:#a626a4;--prism-code-8:#005cc5;--prism-code-9:#a626a4;--prism-line-number:#585c63;}/*!sc*/
+body[data-theme='dark']{--bg-page1:#121212;--bg-page2:#121212;--bg-element1:#1E1E1E;--bg-element2:#1E1E1E;--bg-element3:#252525;--bg-element4:#2E2E2E;--bg-element5:#F1F3F5;--bg-element6:#F8F9FA;--bg-element7:#252525;--bg-element8:#0c0c0c;--bg-invert:#FFFFFF;--bg-inline-code:#363636;--bg-tag:#252525;--text1:#ECECEC;--text2:#D9D9D9;--text3:#ACACAC;--text4:#595959;--border1:#E0E0E0;--border2:#A0A0A0;--border3:#4D4D4D;--border4:#2A2A2A;--primary1:#96F2D7;--primary2:#63E6BE;--destructive1:#FFC9C9;--destructive2:#FFA8A8;--button-text:#121212;--slight-layer:rgba(255,255,255,0.1);--opaque-layer:rgba(0,0,0,0.85);--editor-footer:#2E2E2E;--prism-bg:#1E1E1E;--prism-default-text:#e0e6f1;--prism-selection-bg:#383e49;--prism-code-block-bg:#1e1e1e;--prism-code-1:#7c858d;--prism-code-2:#abb2bf;--prism-code-3:#e06c75;--prism-code-4:#d19a66;--prism-code-5:#98c379;--prism-code-6:#56b6c2;--prism-code-7:#c678dd;--prism-code-8:#61afef;--prism-code-9:#c678dd;--prism-line-number:#5c6370;}/*!sc*/
+data-styled.g152[id="sc-global-gYCCRU4"]{content:"sc-global-gYCCRU4,"}/*!sc*/
+</style><link data-chunk="main" rel="preload" as="style" href="https://static.velog.io/static/css/main.e7869632.chunk.css"/><link data-chunk="main" rel="preload" as="style" href="https://static.velog.io/static/css/19.5dbdccff.chunk.css"/><link data-chunk="main" rel="preload" as="script" href="https://static.velog.io/static/js/runtime-main.21ae9245.js"/><link data-chunk="main" rel="preload" as="script" href="https://static.velog.io/static/js/19.b4c1baac.chunk.js"/><link data-chunk="main" rel="preload" as="script" href="https://static.velog.io/static/js/main.8dd37328.chunk.js"/><link data-chunk="pages-velog-VelogPage" rel="preload" as="script" href="https://static.velog.io/static/js/pages-velog-VelogPage.079ac506.chunk.js"/><link data-chunk="PostPage" rel="preload" as="script" href="https://static.velog.io/static/js/0.64b6b275.chunk.js"/><link data-chunk="PostPage" rel="preload" as="script" href="https://static.velog.io/static/js/22.000de952.chunk.js"/><link data-chunk="PostPage" rel="preload" as="script" href="https://static.velog.io/static/js/1.333d0b0c.chunk.js"/><link data-chunk="PostPage" rel="preload" as="script" href="https://static.velog.io/static/js/PostPage.e021318c.chunk.js"/><link data-chunk="main" rel="stylesheet" href="https://static.velog.io/static/css/19.5dbdccff.chunk.css"/><link data-chunk="main" rel="stylesheet" href="https://static.velog.io/static/css/main.e7869632.chunk.css"/><link rel="shortcut icon" href="https://static.velog.io/favicon.ico"/><link rel="apple-touch-icon" sizes="152x152" href="https://static.velog.io/favicons/apple-icon-152x152.png"/><link rel="icon" sizes="32x32" href="https://static.velog.io/favicons/favicon-32x32.png"/><link rel="icon" sizes="96x96" href="https://static.velog.io/favicons/favicon-96x96.png"/><link rel="icon" sizes="16x16" href="https://static.velog.io/favicons/favicon-16x16.png"/><meta name="viewport" content="width=device-width, initial-scale=1"/><script data-ad-client="ca-pub-5574866530496701" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-125599395-1"></script><script>window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-125599395-1');</script></head><body><div id="root"><div class="__jazzbar false false" style="width:0%"></div><div class="sc-iAKWXU sc-efQSVx fVREVI"><div class="sc-kfPuZi gtFVlQ"><div class="sc-bqiRlB eeKvZX sc-bBHxTw iPfunI"><div class="sc-bkkeKt kMpGa"><a class="sc-ieecCq clzaTA" href="/"><svg width="192" height="192" viewBox="0 0 192 192" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 0H168C181.255 0 192 10.7451 192 24V168C192 181.255 181.255 192 168 192H24C10.7451 192 0 181.255 0 168V24C0 10.7451 10.7451 0 24 0ZM49 57.9199V65.48H67L80.6799 142.52L98.5 141.26C116.02 119.06 127.84 102.44 133.96 91.3999C140.2 80.24 143.32 70.9399 143.32 63.5C143.32 59.0601 142 55.7 139.36 53.4199C136.84 51.1399 133.66 50 129.82 50C122.62 50 116.62 53.0601 111.82 59.1799C116.5 62.3 119.68 64.8799 121.36 66.9199C123.16 68.8401 124.06 71.4199 124.06 74.6599C124.06 80.0601 122.44 86.1799 119.2 93.02C116.08 99.8601 112.66 105.92 108.94 111.2C106.54 114.56 103.48 118.7 99.76 123.62L88.0601 57.2C87.1001 52.3999 84.1001 50 79.0601 50C76.78 50 72.3999 50.96 65.9199 52.8799C59.4399 54.6799 53.8 56.3601 49 57.9199Z" fill="currentColor"></path></svg></a><a class="user-logo" href="/@jm1225">Jaeminst.log</a></div><div class="sc-iwjdpV ajzPu"><a class="sc-fKVqWL cyeyzU" href="/search?username=jm1225"><svg width="17" height="17" viewBox="0 0 17 17"><path fill-rule="evenodd" d="M13.66 7.36a6.3 6.3 0 1 1-12.598 0 6.3 6.3 0 0 1 12.598 0zm-1.73 5.772a7.36 7.36 0 1 1 1.201-1.201l3.636 3.635c.31.31.31.815 0 1.126l-.075.075a.796.796 0 0 1-1.126 0l-3.636-3.635z" clip-rule="evenodd" fill="currentColor"></path></svg></a><button color="darkGray" class="sc-crHmcD kMMgG">로그인</button></div></div></div><div style="margin-top:0;opacity:0" class="sc-caiLqq bpNcSg"><div class="sc-kfPuZi gtFVlQ"><div class="sc-bqiRlB eeKvZX sc-bBHxTw iPfunI"><div class="sc-bkkeKt kMpGa"><a class="sc-ieecCq clzaTA" href="/"><svg width="192" height="192" viewBox="0 0 192 192" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 0H168C181.255 0 192 10.7451 192 24V168C192 181.255 181.255 192 168 192H24C10.7451 192 0 181.255 0 168V24C0 10.7451 10.7451 0 24 0ZM49 57.9199V65.48H67L80.6799 142.52L98.5 141.26C116.02 119.06 127.84 102.44 133.96 91.3999C140.2 80.24 143.32 70.9399 143.32 63.5C143.32 59.0601 142 55.7 139.36 53.4199C136.84 51.1399 133.66 50 129.82 50C122.62 50 116.62 53.0601 111.82 59.1799C116.5 62.3 119.68 64.8799 121.36 66.9199C123.16 68.8401 124.06 71.4199 124.06 74.6599C124.06 80.0601 122.44 86.1799 119.2 93.02C116.08 99.8601 112.66 105.92 108.94 111.2C106.54 114.56 103.48 118.7 99.76 123.62L88.0601 57.2C87.1001 52.3999 84.1001 50 79.0601 50C76.78 50 72.3999 50.96 65.9199 52.8799C59.4399 54.6799 53.8 56.3601 49 57.9199Z" fill="currentColor"></path></svg></a><a class="user-logo" href="/@jm1225">Jaeminst.log</a></div><div class="sc-iwjdpV ajzPu"><a class="sc-fKVqWL cyeyzU" href="/search?username=jm1225"><svg width="17" height="17" viewBox="0 0 17 17"><path fill-rule="evenodd" d="M13.66 7.36a6.3 6.3 0 1 1-12.598 0 6.3 6.3 0 0 1 12.598 0zm-1.73 5.772a7.36 7.36 0 1 1 1.201-1.201l3.636 3.635c.31.31.31.815 0 1.126l-.075.075a.796.796 0 0 1-1.126 0l-3.636-3.635z" clip-rule="evenodd" fill="currentColor"></path></svg></a><button color="darkGray" class="sc-crHmcD kMMgG">로그인</button></div></div></div></div><div class="sc-hiwPVj cFguvd sc-jOxtWs jwOdTX"><div class="head-wrapper"><h1>Git/Github Workflow</h1><div class="sc-hmjpVf bYuQFb"><div class="information"><span class="username"><a href="/@jm1225">jm1225</a></span><span class="separator">·</span><span>2022년 2월 21일</span></div><div class="sc-kHOZwM kJWymA"><button data-testid="like-btn" class="sc-gjNHFA kobhWl"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"></path></svg><span>0</span></button></div></div><div class="sc-jIkXHa fCyJgT"><a class="sc-TBWPX fOVlQW" href="/tags/git">git</a><a class="sc-TBWPX fOVlQW" href="/tags/github">github</a></div><div class="sc-ilfuhL iJHaaP"><div class="sc-uojGG bywXpw"><div class="sc-XxNYO sc-bilyIR cbkBIK"><div data-testid="like" active="false" style="transform:scale(1)" class="sc-eGPXGI iyqbCU"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"></path></svg></div><div class="sc-hAcGzb cZoPFg">0</div><div class="sc-kYHfwS deUPxO"><div class="positioner"><div style="opacity:0;transform:translate(0px, 0px)" class="sc-xiLah cbQMCF"><div class="sc-eGPXGI iyqbCU"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg></div></div><div style="opacity:0;transform:translate(0px)" class="sc-xiLah cbQMCF"><div class="sc-eGPXGI iyqbCU"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></div></div><div style="opacity:0;transform:translate(0px, 0px)" class="sc-xiLah cbQMCF"><div class="sc-eGPXGI iyqbCU"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21.586 10.461l-10.05 10.075c-1.95 1.949-5.122 1.949-7.071 0s-1.95-5.122 0-7.072l10.628-10.585c1.17-1.17 3.073-1.17 4.243 0 1.169 1.17 1.17 3.072 0 4.242l-8.507 8.464c-.39.39-1.024.39-1.414 0s-.39-1.024 0-1.414l7.093-7.05-1.415-1.414-7.093 7.049c-1.172 1.172-1.171 3.073 0 4.244s3.071 1.171 4.242 0l8.507-8.464c.977-.977 1.464-2.256 1.464-3.536 0-2.769-2.246-4.999-5-4.999-1.28 0-2.559.488-3.536 1.465l-10.627 10.583c-1.366 1.368-2.05 3.159-2.05 4.951 0 3.863 3.13 7 7 7 1.792 0 3.583-.684 4.95-2.05l10.05-10.075-1.414-1.414z" fill="currentColor"></path></svg></div></div></div></div><div><div style="position:relative" class="sc-eGPXGI iyqbCU"><svg width="24" height="24" viewBox="0 0 24 24" class="share"><path fill="currentColor" d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"></path></svg></div></div></div></div></div></div><img src="https://velog.velcdn.com/images/jm1225/post/3aa9d718-f88c-4d89-848d-4eadef08b561/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%2C%202022-02-21%2020-11-41.png" alt="post-thumbnail" class="sc-bTfYFJ ggWhSV"/></div><div class="sc-jUosCB dvEyfJ"><div class="sc-hOGkXu bnKeUP"><div class="sc-dtMgUX hHtnkZ atom-one"><h1 id="1-gitgithub">1) Git/Github</h1>
+<h2 id="repository-저장소">Repository (저장소)</h2>
+<p>Directory 와 비슷한 개념?</p>
+<h2 id="remote">Remote</h2>
+<p>원격 저장소, Github</p>
+<ul>
+<li>Origin Repository = 나의 저장소, ex. My Github</li>
+<li>Other Repository = 다른 저장소, ex. Pair Github</li>
+</ul>
+<h2 id="local">Local</h2>
+<p>개인 저장소, PC</p>
+<ul>
+<li>Staging area = git commit 가능한 공간</li>
+<li>Working directory = git add 하기전 git으로 관리하는 공간</li>
+</ul>
+<h3 id="git의-세-가지-영역-및-상태">Git의 세 가지 영역 및 상태</h3>
+<p><img src="https://velog.velcdn.com/images%2Fjm1225%2Fpost%2F5d6eaf2c-9ee5-496e-8ac7-e181fe3b203d%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%2C%202022-02-21%2022-05-01.png" /></p>
+<ul>
+<li>
+<p>Committed<br />
+기존에 Commit했던 파일을 수정하지 않은 상태</p>
+</li>
+<li>
+<p>Modified<br />
+기존에 Commit했던 파일을 수정한 상태</p>
+</li>
+<li>
+<p>Staged<br />
+commit이 가능한 상태</p>
+</li>
+</ul>
+<h1 id="2-명령어">2) 명령어</h1>
+<ul>
+<li>
+<p>Fork<br />
+Github에서 다른 저장소의 파일을 Fork로 가져올 수 있다.</p>
+</li>
+<li>
+<p>clone<br />
+<code>git clone {레파지토리 주소}</code><br />
+<code>git clone https://github.com/{github-name}/{Repository}.git</code><br />
+<code>git clone https://github.com/Jaeminst/git-workflow-test.git</code><br />
+<code>git clone git@github.com:{github-name}/{Repository}.git</code><br />
+<code>git clone git@github.com:Jaeminst/sprint-simple-git-workflow.git</code></p>
+</li>
+<li>
+<p>status<br />
+<code>git status</code>로 Local의 목록을 확인할 수 있다.</p>
+</li>
+<li>
+<p>restore<br />
+<code>git restore {파일명}</code>으로 commit 되지 않은 변경을 되돌린다.</p>
+</li>
+<li>
+<p>add<br />
+<code>git add {파일명}</code>으로 commit 가능한 상태로 추가한다.<br />
+<code>git add .</code>으로 Staging area의 모든 파일을 추가한다.</p>
+</li>
+<li>
+<p>commit<br />
+<code>git commit -m '메시지'</code> -m 옵션으로 코멘트를 달고 commit 할 수 있습니다.</p>
+<blockquote>
+<p>훌륭한 Git commit 메시지의 7가지 규칙<br />
+1) 공백라인으로 본문과 주제 구분<br />
+2) 제목 줄을 50자로 제한<br />
+3) 제목을 대문자로<br />
+4) 제목 줄을 마침표로 끝내지 마십시오.<br />
+5) 제목에 명령형 분위기를 사용하세요.<br />
+6) 본문을 72자로 줄바꿈<br />
+7) 행동을 사용하여 무엇을 어떻게, 왜 바꿨는지 표현하라.</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>
+<p>reset<br />
+<code>git reset HEAD^</code>으로 Github에 올라가지 않은 commit이면 reset으로 취소할 수 있습니다.<br />
+HEAD^ : 가장 최근 commit<br />
+HEAD^^^ : 가장 최근부터 3개의 commit<br />
+HEAD~4 : 가장 최근부터 4개읠 commit<br />
+<code>git reset --hard</code>, <code>git reset --soft</code> 학습필요.</p>
+</li>
+<li>
+<p>push<br />
+<code>git push {origin} {branch}</code><br />
+<code>git push origin master</code>으로 나의 Remote Repository의 master(tree)에 변경 사항을 업로드한다.<br />
+<code>git push upstream master</code>으로 업스트림으로 등록된 레포지토리에 푸쉬.</p>
+</li>
+<li>
+<p>log<br />
+<code>git log</code> 현재까지 commit 된 내역들을 터미널 창에서 확인<br />
+<code>git log --oneline -n 3</code> 최근 3개 커밋내역 확인</p>
+</li>
+<li>
+<p>init<br />
+기존 디렉토리를 Git Repository로 변환<br />
+<code>git init</code> 현재 디렉토리를 init 하고, 초기화 한다.</p>
+</li>
+<li>
+<p>remote add<br />
+나의 저장소에 연결한다.<br />
+<code>git remote add origin {Repository 주소}</code><br />
+다른 저장소에 연결한다.<br />
+<code>git remote add {other} {Repository 주소}</code><br />
+등록된 저장소를 삭제한다.<br />
+<code>git remote remove {other} {Repository 주소}</code></p>
+</li>
+<li>
+<p>remote -v<br />
+연결된 모든 Remote Repogitory 확인<br />
+<code>git remote -v</code></p>
+</li>
+<li>
+<p>pull<br />
+Github 저장소에서 Local 저장소로 작업내용을 가져온다.<br />
+받아오는 내용은 자동으로 병합(merge) 된다.<br />
+<code>git pull {shortname} {branch}</code></p>
+</li>
+<li>
+<p>pull 사용 후 충돌 발생<br />
+같은 부분을 변경하면 자동병합을 실패하며, 직접 수정 해주어야 한다.<br />
+<code>git status</code>로 충돌 파일을 확인한다.<br />
+그 다음 비주얼 스튜디오를 열어 수정한다.<br />
+Add 하여 Staging area로 추가하고 commit하고, push 해주어야 한다.<br />
+이때, 충돌로 commit된 파일은 자동으로 comment가 달린다.</p>
+</li>
+<li>
+<p>merge<br />
+<code>git merge {branch}</code><br />
+<code>git merge upstream/main</code>으로 현재 위치에서 업스트림으로 등록된 레포의 main 브랜치 가져옴</p>
+</li>
+<li>
+<p>switch<br />
+<code>git switch -c {branch}</code> 새로운 브랜치 생성<br />
+<code>git switch {branch}</code> {브랜치}로 이동</p>
+</li>
+</ul>
+<h1 id="3-workflow">3) Workflow</h1>
+<p><img src="https://velog.velcdn.com/images%2Fjm1225%2Fpost%2Fa596fd0c-db6e-4d88-94c9-6338d5ef16fc%2F%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%2C%202022-02-21%2019-57-19.png" /></p>
+<ol>
+<li>
+<p>Fork<br />
+다른 저장소에서 나의 저장소로 가져온다.</p>
+</li>
+<li>
+<p>Clone<br />
+나의 저장소에서 개인 저장소로 가져온다.</p>
+</li>
+<li>
+<p>Add<br />
+개인 컴퓨터에 있는 파일을 추가한다.</p>
+</li>
+<li>
+<p>Commit<br />
+특정 시점의 저장소 스냅샷을 기록한다.</p>
+</li>
+<li>
+<p>Push<br />
+스냅샷을 Github에 등록한다.</p>
+</li>
+<li>
+<p>Pull Request<br />
+등록된 변경코드를 다른 저장소에 변경 요청한다.<br />
+내가 push한 변경 사항에 대하여 다른 사람들에게 알리는 것.<br />
+Pull Request (=PR) 으로 수정반영을 요청한다.</p>
+</li>
+</ol>
+<h2 id="혼자-작업-workflow">혼자 작업 Workflow</h2>
+<ol>
+<li>Fork : Github의 다른 저장소에서 Fork 해옵니다.</li>
+<li>Clone : Fork 해온 Repogit을 Local 저장소에 Clone을 만듭니다.</li>
+<li>Add : Local 저장소에서 파일을 새로 추가할 수 있습니다.</li>
+<li>Commit : Local 저장소에서 수정된 내용의 스냅샷을 저장합니다.</li>
+<li>Push : Commit된 스냅샷을 Remote 저장소에 넣습니다.</li>
+<li>다른 사람이 보낸 PR을 적용할 수 있습니다.</li>
+<li>다른 저장소의 Repogitory에서 위 작업을 통하여 PR을 보낼 수 있습니다.</li>
+</ol>
+<h2 id="함께-작업-workflow">함께 작업 Workflow</h2>
+<h3 id="local---remote-repogitory-연결">Local &lt;-&gt; Remote, Repogitory 연결</h3>
+<ol>
+<li>init : 내 컴퓨터에서 생성한 디렉토리를 git의 관리하에 둘 수 있습니다.</li>
+<li>remote add origin {주소} : 로컬과 리모트 레포지토리를 연결합니다.</li>
+<li>remote add {other} {주소} : 다른 사람의 저장소와 연결할 수 있습니다.</li>
+<li>remote -v : 연결된 저장소들을 확인합니다.</li>
+</ol>
+<h3 id="작업-내용-가져오기">작업 내용 가져오기</h3>
+<p><code>git pull origin master</code><br />
+<code>git pull pair master</code><br />
+Pull {other} {branch} : Remote -&gt; Local 받아오며 자동병합 됩니다.</p>
+<h3 id="충돌-해결하기">충돌 해결하기</h3>
+<ol>
+<li><code>git status</code> 로 충돌 내용을 확인합니다.</li>
+<li>VSC로 파일을 열어보고 수정합니다.</li>
+<li>커밋을 하기위해 <code>add</code>로 추가하고, <code>commit</code> 해줍니다.</li>
+<li>커밋한 파일을 Remote Repogitory로 보내기 위해 <code>push</code> 해줍니다.</li>
+</ol>
+<h1 id="ex-예제">Ex) 예제</h1>
+<h3 id="repository의-commit되지-않은-변경-사항을-취소하기">Repository의 commit되지 않은 변경 사항을 취소하기.</h3>
+<ul>
+<li>reset HEAD {file}</li>
+<li>checkout -- {file}</li>
+</ul>
+<h3 id="협업을-위한-git-개념을-이해하기">협업을 위한 git 개념을 이해하기</h3>
+<ul>
+<li>branch, merge의 개념</li>
+<li>remote repository에서 origin과 upstream의 차이점</li>
+</ul></div></div></div><div class="sc-hiwPVj cFguvd sc-avest bZgVJT"><div class="sc-jlRLRk itanDZ"><div class="sc-dUbtfd gBxoyd"><a href="/@jm1225"><img src="https://velog.velcdn.com/images/jm1225/profile/fc9a9d2d-4249-45d8-ae4f-55c716a31251/1620216213748-1.jpg" alt="profile"/></a><div class="sc-htJRVC imDJFA"><div class="name"><a href="/@jm1225">Jaeminst</a></div><div class="description">DevOps !</div></div></div><div class="sc-cbTzjv eeSNkh"></div><div class="sc-hjGZqJ fknBCc"></div></div></div><div class="sc-hiwPVj cFguvd sc-fmBCVi iAyTnk"><div class="sc-lkgTHX fDnymV"><a class="sc-jWUzzU iORQCp" href="/@jm1225/Bootcamp-0218"><div class="sc-FNXRL juWdTI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg></div><div class="sc-eFegNN lnjQjY"><div class="description">이전<!-- --> 포스트</div><h3>회고록, DevOps 2주차</h3></div></a></div><div class="sc-lkgTHX fDnymV"><a class="sc-jWUzzU jyLBky" href="/@jm1225/Bootcamp-0221"><div class="sc-FNXRL dVjnun"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></div><div class="sc-eFegNN fgoqqv"><div class="description">다음<!-- --> 포스트</div><h3>회고록 2월 21일</h3></div></a></div></div><div class="sc-hiwPVj cFguvd sc-jQrDum unEbH"><h4>0<!-- -->개의 댓글</h4><div class="sc-fvxzrP"><div class="sc-fbyfCU gyjlTr"><textarea placeholder="댓글을 작성하세요" class="sc-GEbAx kzkpzA" style="height:0"></textarea><div class="buttons-wrapper"><button color="teal" class="sc-pVTFL cbEpmK">댓글 <!-- -->작성</button></div></div><div class="sc-dkYRCH deWCtC"><div class="sc-dtDOqo"></div></div></div></div></div><div class="Toastify"></div></div><script>window.__APOLLO_STATE__={"$ROOT_QUERY.velog_config({\"username\":\"jm1225\"})":{"title":"Jaeminst.log","logo_image":null,"__typename":"VelogConfig"},"ROOT_QUERY":{"velog_config({\"username\":\"jm1225\"})":{"type":"id","generated":true,"id":"$ROOT_QUERY.velog_config({\"username\":\"jm1225\"})","typename":"VelogConfig"},"auth":null,"post({\"url_slug\":\"GitGithub-Workflow\",\"username\":\"jm1225\"})":{"type":"id","generated":false,"id":"Post:6c1d8f6b-af72-474d-b6cd-68ab27100903","typename":"Post"}},"Post:6c1d8f6b-af72-474d-b6cd-68ab27100903":{"id":"6c1d8f6b-af72-474d-b6cd-68ab27100903","title":"Git/Github Workflow","released_at":"2022-02-21T14:42:04.842Z","updated_at":"2022-06-06T10:47:25.788Z","tags":{"type":"json","json":["git","github"]},"body":"# 1) Git/Github\n\n## Repository (저장소)\nDirectory 와 비슷한 개념?\n\n## Remote\n원격 저장소, Github\n- Origin Repository = 나의 저장소, ex. My Github\n- Other Repository = 다른 저장소, ex. Pair Github\n\n## Local\n개인 저장소, PC\n- Staging area = git commit 가능한 공간\n- Working directory = git add 하기전 git으로 관리하는 공간\n\n### Git의 세 가지 영역 및 상태\n![](https://images.velog.io/images/jm1225/post/5d6eaf2c-9ee5-496e-8ac7-e181fe3b203d/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7,%202022-02-21%2022-05-01.png)\n\n- Committed\n기존에 Commit했던 파일을 수정하지 않은 상태\n\n- Modified\n기존에 Commit했던 파일을 수정한 상태\n\n- Staged\ncommit이 가능한 상태\n\n# 2) 명령어\n\n- Fork\nGithub에서 다른 저장소의 파일을 Fork로 가져올 수 있다.\n\n- clone\n`git clone {레파지토리 주소}`\n`git clone https://github.com/{github-name}/{Repository}.git`\n`git clone https://github.com/Jaeminst/git-workflow-test.git`\n`git clone git@github.com:{github-name}/{Repository}.git`\n`git clone git@github.com:Jaeminst/sprint-simple-git-workflow.git`\n\n- status\n`git status`로 Local의 목록을 확인할 수 있다.\n\n- restore\n`git restore {파일명}`으로 commit 되지 않은 변경을 되돌린다.\n\n- add\n`git add {파일명}`으로 commit 가능한 상태로 추가한다.\n`git add .`으로 Staging area의 모든 파일을 추가한다.\n\n- commit\n`git commit -m '메시지'` -m 옵션으로 코멘트를 달고 commit 할 수 있습니다.\n> 훌륭한 Git commit 메시지의 7가지 규칙\n1) 공백라인으로 본문과 주제 구분\n2) 제목 줄을 50자로 제한\n3) 제목을 대문자로\n4) 제목 줄을 마침표로 끝내지 마십시오.\n5) 제목에 명령형 분위기를 사용하세요.\n6) 본문을 72자로 줄바꿈\n7) 행동을 사용하여 무엇을 어떻게, 왜 바꿨는지 표현하라.\n\n\n- reset\n`git reset HEAD^`으로 Github에 올라가지 않은 commit이면 reset으로 취소할 수 있습니다.\nHEAD^ : 가장 최근 commit\nHEAD^^^ : 가장 최근부터 3개의 commit\nHEAD~4 : 가장 최근부터 4개읠 commit\n`git reset --hard`, `git reset --soft` 학습필요.\n\n- push\n`git push {origin} {branch}`\n`git push origin master`으로 나의 Remote Repository의 master(tree)에 변경 사항을 업로드한다.\n`git push upstream master`으로 업스트림으로 등록된 레포지토리에 푸쉬.\n\n- log\n`git log` 현재까지 commit 된 내역들을 터미널 창에서 확인\n`git log --oneline -n 3` 최근 3개 커밋내역 확인\n\n- init\n기존 디렉토리를 Git Repository로 변환\n`git init` 현재 디렉토리를 init 하고, 초기화 한다.\n\n- remote add\n나의 저장소에 연결한다.\n`git remote add origin {Repository 주소}`\n다른 저장소에 연결한다.\n`git remote add {other} {Repository 주소}`\n등록된 저장소를 삭제한다.\n`git remote remove {other} {Repository 주소}`\n\n- remote -v\n연결된 모든 Remote Repogitory 확인\n`git remote -v`\n\n- pull\nGithub 저장소에서 Local 저장소로 작업내용을 가져온다.\n받아오는 내용은 자동으로 병합(merge) 된다.\n`git pull {shortname} {branch}`\n\n- pull 사용 후 충돌 발생\n같은 부분을 변경하면 자동병합을 실패하며, 직접 수정 해주어야 한다.\n`git status`로 충돌 파일을 확인한다.\n그 다음 비주얼 스튜디오를 열어 수정한다.\nAdd 하여 Staging area로 추가하고 commit하고, push 해주어야 한다.\n이때, 충돌로 commit된 파일은 자동으로 comment가 달린다.\n\n- merge\n`git merge {branch}`\n`git merge upstream/main`으로 현재 위치에서 업스트림으로 등록된 레포의 main 브랜치 가져옴\n\n- switch\n`git switch -c {branch}` 새로운 브랜치 생성\n`git switch {branch}` {브랜치}로 이동\n\n# 3) Workflow\n\n![](https://images.velog.io/images/jm1225/post/a596fd0c-db6e-4d88-94c9-6338d5ef16fc/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7,%202022-02-21%2019-57-19.png)\n\n1. Fork\n다른 저장소에서 나의 저장소로 가져온다.\n\n2. Clone\n나의 저장소에서 개인 저장소로 가져온다.\n\n3. Add\n개인 컴퓨터에 있는 파일을 추가한다.\n\n4. Commit\n특정 시점의 저장소 스냅샷을 기록한다.\n\n5. Push\n스냅샷을 Github에 등록한다.\n\n6. Pull Request\n등록된 변경코드를 다른 저장소에 변경 요청한다.\n내가 push한 변경 사항에 대하여 다른 사람들에게 알리는 것.\nPull Request (=PR) 으로 수정반영을 요청한다.\n\n## 혼자 작업 Workflow\n1. Fork : Github의 다른 저장소에서 Fork 해옵니다.\n2. Clone : Fork 해온 Repogit을 Local 저장소에 Clone을 만듭니다.\n3. Add : Local 저장소에서 파일을 새로 추가할 수 있습니다.\n4. Commit : Local 저장소에서 수정된 내용의 스냅샷을 저장합니다.\n5. Push : Commit된 스냅샷을 Remote 저장소에 넣습니다.\n6. 다른 사람이 보낸 PR을 적용할 수 있습니다.\n7. 다른 저장소의 Repogitory에서 위 작업을 통하여 PR을 보낼 수 있습니다.\n\n## 함께 작업 Workflow\n### Local \u003c-> Remote, Repogitory 연결\n1. init : 내 컴퓨터에서 생성한 디렉토리를 git의 관리하에 둘 수 있습니다.\n2. remote add origin {주소} : 로컬과 리모트 레포지토리를 연결합니다.\n3. remote add {other} {주소} : 다른 사람의 저장소와 연결할 수 있습니다.\n4. remote -v : 연결된 저장소들을 확인합니다.\n\n### 작업 내용 가져오기\n`git pull origin master`\n`git pull pair master`\nPull {other} {branch} : Remote -> Local 받아오며 자동병합 됩니다.\n\n### 충돌 해결하기\n1. `git status` 로 충돌 내용을 확인합니다.\n2. VSC로 파일을 열어보고 수정합니다.\n3. 커밋을 하기위해 `add`로 추가하고, `commit` 해줍니다.\n4. 커밋한 파일을 Remote Repogitory로 보내기 위해 `push` 해줍니다.\n\n# Ex) 예제\n\n### Repository의 commit되지 않은 변경 사항을 취소하기.\n- reset HEAD {file}\n- checkout -- {file}\n\n### 협업을 위한 git 개념을 이해하기\n- branch, merge의 개념\n- remote repository에서 origin과 upstream의 차이점\n\n","short_description":"Github에서 버전을 관리하기 위한 Git에 대하여 설명하고 workflow를 이해한다.","is_markdown":true,"is_private":false,"is_temp":false,"thumbnail":"https://images.velog.io/images/jm1225/post/3aa9d718-f88c-4d89-848d-4eadef08b561/스크린샷, 2022-02-21 20-11-41.png","comments_count":0,"url_slug":"GitGithub-Workflow","likes":0,"liked":false,"user":{"type":"id","generated":false,"id":"User:3465e2ae-3143-4399-9b4a-e09e553e7fce","typename":"User"},"comments":[],"series":null,"linked_posts":{"type":"id","generated":true,"id":"$Post:6c1d8f6b-af72-474d-b6cd-68ab27100903.linked_posts","typename":"LinkedPosts"},"__typename":"Post"},"User:3465e2ae-3143-4399-9b4a-e09e553e7fce":{"id":"3465e2ae-3143-4399-9b4a-e09e553e7fce","username":"jm1225","profile":{"type":"id","generated":false,"id":"UserProfile:566db70d-0a06-483c-8c35-463ce6d684bf","typename":"UserProfile"},"velog_config":{"type":"id","generated":true,"id":"$User:3465e2ae-3143-4399-9b4a-e09e553e7fce.velog_config","typename":"VelogConfig"},"__typename":"User"},"UserProfile:566db70d-0a06-483c-8c35-463ce6d684bf":{"id":"566db70d-0a06-483c-8c35-463ce6d684bf","display_name":"Jaeminst","thumbnail":"https://images.velog.io/images/jm1225/profile/fc9a9d2d-4249-45d8-ae4f-55c716a31251/1620216213748-1.jpg","short_bio":"DevOps !","profile_links":{"type":"json","json":{}},"__typename":"UserProfile"},"$User:3465e2ae-3143-4399-9b4a-e09e553e7fce.velog_config":{"title":"Jaeminst.log","__typename":"VelogConfig"},"Post:55d7b95d-ccc6-4391-8840-6111f43a73d5":{"id":"55d7b95d-ccc6-4391-8840-6111f43a73d5","title":"회고록, DevOps 2주차","url_slug":"Bootcamp-0218","user":{"type":"id","generated":false,"id":"User:3465e2ae-3143-4399-9b4a-e09e553e7fce","typename":"User"},"__typename":"Post"},"$Post:6c1d8f6b-af72-474d-b6cd-68ab27100903.linked_posts":{"previous":{"type":"id","generated":false,"id":"Post:55d7b95d-ccc6-4391-8840-6111f43a73d5","typename":"Post"},"next":{"type":"id","generated":false,"id":"Post:ec245bca-8188-48bc-86e3-ceb459fa173b","typename":"Post"},"__typename":"LinkedPosts"},"Post:ec245bca-8188-48bc-86e3-ceb459fa173b":{"id":"ec245bca-8188-48bc-86e3-ceb459fa173b","title":"회고록 2월 21일","url_slug":"Bootcamp-0221","user":{"type":"id","generated":false,"id":"User:3465e2ae-3143-4399-9b4a-e09e553e7fce","typename":"User"},"__typename":"Post"}};</script><script>window.__REDUX_STATE__={"core":{"layer":false,"auth":{"visible":false,"mode":"LOGIN"},"user":null,"popup":{"visible":false,"title":"","message":""}},"write":{"mode":"MARKDOWN","markdown":"","title":"","html":"","tags":[],"publish":false,"textBody":"","defaultDescription":"","description":"","isPrivate":false,"urlSlug":"","thumbnail":null,"editSeries":false,"selectedSeries":null,"postId":null,"isTemp":false,"initialTitle":"","initialBody":""},"header":{"custom":true,"userLogo":{"title":"Jaeminst.log","logo_image":null},"username":"jm1225"},"post":{"id":null},"error":{"errorType":null},"scroll":{"main":0,"user/posts":0},"home":{"timeframe":"week"},"darkMode":{"theme":"default","systemTheme":"not-ready"}};</script><script id="__LOADABLE_REQUIRED_CHUNKS__" type="application/json">[17,0,22,1,3]</script><script id="__LOADABLE_REQUIRED_CHUNKS___ext" type="application/json">{"namedChunks":["pages-velog-VelogPage","PostPage"]}</script><script async="" data-chunk="main" src="https://static.velog.io/static/js/runtime-main.21ae9245.js"></script><script async="" data-chunk="main" src="https://static.velog.io/static/js/19.b4c1baac.chunk.js"></script><script async="" data-chunk="main" src="https://static.velog.io/static/js/main.8dd37328.chunk.js"></script><script async="" data-chunk="pages-velog-VelogPage" src="https://static.velog.io/static/js/pages-velog-VelogPage.079ac506.chunk.js"></script><script async="" data-chunk="PostPage" src="https://static.velog.io/static/js/0.64b6b275.chunk.js"></script><script async="" data-chunk="PostPage" src="https://static.velog.io/static/js/22.000de952.chunk.js"></script><script async="" data-chunk="PostPage" src="https://static.velog.io/static/js/1.333d0b0c.chunk.js"></script><script async="" data-chunk="PostPage" src="https://static.velog.io/static/js/PostPage.e021318c.chunk.js"></script></body></html>
