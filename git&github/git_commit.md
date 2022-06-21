@@ -125,7 +125,46 @@ $ git log --oneline     // 로그를 한줄씩만 출력
 > 커밋 메세지가 아무리 길더라도, 한줄로 표현. -> 첫 줄만 출력.
 
 
+### Amend로 수정.
 
+* commit을 했는데, 빼먹은 파일이나, 오타가 있어서 수정해야 할 경우.
+
+* amend 명령어는 직전 수행한 커밋을 편집, 취소, 업데이트할 수 있게 해준다. 직전이 아닌 커밋들은 불가.
+
+```zsh
+$ git commit --amend
+```
+![git](/Image/git&github/7.png)
+
+> 위의 명령어로 다음과 같은 vim창이 나오는데, 직전에 commit한 메세지가 상위에 있고, 작업의 status가 출력된다.
+
+1. 메세지만 수정할 경우, 상위의 메세지만 수정후 저장하면된다.
+
+![git](/Image/git&github/8.png)
+
+2. 혹시 같이 못 올린 파일이 있다면, 먼저 add를 이용해서 staging area로 올려주고, git commit --amend를 해주면, 자동으로 직전 commit에 staging area에 있는 작업들이 올라간다.
+
+> 물론 동시에도 가능하다!!
+
+### git ignore
+
+* api키나 자격증명을 사용해서 작업하고 있는 경우 또는 알려지기 싫은 파일들을 local에는 있지만, git으로 추적을 원하지 않는 경우.
+
+* 맥에는 .DS_Store 파일이 있는데, 프로젝트나 코드와는 상관없는 파일. -> 디렉토리에서 그냥 보여질 뿐이고, 시스템의 숨겨진 파일이다. 따라서 그런 파일들을 깃으로 추적하는 것을 원치 않을때.
+
+* .gitignore이라는 이름의 파일에 이런 정보들을 담아서 저장하면 되는데, 보통은 저장소의 최상위 루트에 넣게 된다.
+
+* .gitignore 파일의 구성.
+    - *.log => 확장자를 .log로 갖는 모든 파일을 제외시킴.
+    - dir_name/ => 폴더도 숨길 수 있음.
+    - .DS_Store => 이 파일을 숨김.
+
+```zsh
+$ touch .gitignore
+```
+
+
+[gitignore 옵션 - https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
 
 
 
