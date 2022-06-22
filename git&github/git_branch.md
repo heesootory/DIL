@@ -85,8 +85,30 @@ $ git switch <branch-name>
 
 > git log 또한 master에 해당되는 작업이력만 출력됨.
 
+### 기타옵션. git Checkout 대 git switch
+
+```zsh
+$ git checkout <branch-name>
+```
+
+> 브랜치 이동.(switch와 동일하게)
+
+* git switch의 구식 명령어이다. 아직존재 하지만, 새명령어인 git switch가 나와서 현재에는 브랜치 이동시 switch를 더 많이 사용.
+
+* git checkout은 이동 뿐만아니라, 작업트리의 복원에도 사용되고, 다른 기능들도 추가로 있다. -> docs의 옵션들을 참고.
 
 
+```zsh
+$ git switch -c <branch-name>
+$ git checkout -b <branch-name>
+```
+
+* 브랜치를 생성하고, 이동까지 진행하는 명령어. (-c : create)
+
+
+🔥🔥🔥
+예제로 해본 작업들은 모두 파일안에서 이루어지는 파일 단위였지만, git branch를 이용해서 폴더나 파일등도 branch마다 다르게 생성되고, 작업할 수 있으므로 좀더 큰 단위로도 생각해보기
+🔥🔥🔥
 
 
 
