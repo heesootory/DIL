@@ -65,6 +65,12 @@ $ git add .     // 전체 변경사항 모두 스테이지로.
 $ git commit -m "message"
 ```
 
+```zsh
+$ git commit -a -m "message"
+```
+> 한 줄의 명령으로 스테이지에 모든 변경사항을 올림.(git add 할 필요 X)
+
+
 ### git log
 
 > git에 commit되는 log들을 출력해서 확인 가능.

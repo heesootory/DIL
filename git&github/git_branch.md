@@ -125,7 +125,3 @@ $ git switch <branch-name>
 
 
 
-
-
-
-
