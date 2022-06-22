@@ -163,7 +163,6 @@ $ git commit --amend
 $ touch .gitignore
 ```
 
-
 [gitignore 옵션 - https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
 
 
