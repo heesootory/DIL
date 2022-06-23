@@ -168,6 +168,13 @@ $ git branch -D <branch-name>
 $ git branch -m <new branch-name>
 ```
 
+### git에서 HEAD와 브랜치 저장.
+
+* HEAD가 가르키는 레퍼런스 확인하기.
+> git의 숨긴폴더에서 HEAD에 관련된 정보를 출력시킬 수 있다.
+![git](/Image/git&github/26.png)
+
+
 
 
 
