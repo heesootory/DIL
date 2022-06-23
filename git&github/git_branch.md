@@ -148,8 +148,25 @@ $ git checkout -b <branch-name>
 
 
 
+### branch 삭제 &  이름 변경
 
+* branch 삭제 
+> 삭제할 브랜치 이외의 브랜치에서 아래 명령어 사용으로 브랜치 삭제 가능.
+```zsh
+$ git branch -d <branch-name>
+```
 
+* branch 강제 삭제
+> 병합 상태에 상관없이 삭제.
+```zsh
+$ git branch -D <branch-name>
+```
+
+* branch 이름변경
+> 삭제할때와 다르게, 이름을 변경할 branch에서 실행.
+```zsh
+$ git branch -m <new branch-name>
+```
 
 
 
