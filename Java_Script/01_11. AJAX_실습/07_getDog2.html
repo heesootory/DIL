@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dog</h1>
+    <button id = "btn"> 불러와 </button>
+    <br>
+    <img src="" alt="" id="dog-img">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 개 이미지를 계속 보내주는 사이트.
+        const URL = "https://dog.ceo/api/breeds/image/random";
+
+        const imgTag = document.querySelector("#dog-img");
+        const Btn = document.querySelector("#btn");
+
+        // Axios를 사용해서 받아보기.
+
+        function getDog(){
+            axios.get(URL)
+            .then((res) =>{
+                const imgSrc = res.data.message;
+                imgTag.setAttribute("src", imgSrc);
+            })
+        }
+
+        Btn.addEventListener("click", getDog)
+
+    </script>
+
+</body>
+</html>

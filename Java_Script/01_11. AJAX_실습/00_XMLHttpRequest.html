@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // json 연습용데이터를 게속 쏴주는 사이트
+        const URL = "https://jsonplaceholder.typicode.com/todos/1"
+
+        // AJAX 통신을 하겠다.
+
+        const xhr = new XMLHttpRequest();
+
+        // xhr을 보내기 위해서 open메서드를 활용해야겠다.
+        xhr.open('GET', URL);          // async(비동기)가 디폴트
+        xhr.send();     // 요청 보내기
+
+        const todo = xhr.response;
+        console.log(todo);      // 출력X
+
+        /**
+         * "AJAX요청을 보내놓고 기다리지 않는 현상"
+         * 
+         * console창에 todo를 찍어보면 아무것도 나오지 않는데, xhr.response를 찍는다면 요청한 데이터가 들어와있다.!!?
+         * 
+         * xhr을 이용해 데이터를 요청하고 작업을 하는동안에는 xhr이 web api라는 곳에서 작업을 하며, 
+         * 아주 짧은 시간이라도 대기를하며 데이터를 받는 과정이 실시되는데, 그과정에서 todo라는 데이터를 받는 변수는 기다리지 않고,
+         * 그냥 넘어갔기 때문이다.
+         *  -> javascript 는 싱글쓰레드이기 때문에!! 기다리지 않는다.
+         *  -> 01_XMLHttpRequest 에서 수정을 해보자!
+         */
+
+    </script>
+
+</body>
+</html>

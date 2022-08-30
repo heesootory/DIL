@@ -11,18 +11,19 @@
         console.log("Hi")
 
         // 3초 뒤에 동작 - 최소 3초는 기다려라~ 라는 말이므로, 최소가 3초이고 더 걸릴수도있다!
+
         // setTimeout(function(){
         //     console.log("hstory")
         // }, 3000)
 
         // 일단 web api set으로 무조건 들어가는 순간 지나가버려서 다음 문장이 먼저 호츌되어 버림.
-        setTimeout(function(){
+        setTimeout(function(){      //setTimeout함수의 설명에 handler라는 부분이 무엇을 실행하지? 인데 -> 콜백함수를 정의하면 된다.
             console.log("hstory")
         }, 0)
         
         // 에로우 함수로 사용 - 위와 동작이 동일
         // 바탕색을 1초마다 변경.
-        setInterval(() => {
+        setInterval(() => {     // 콜백함수를 화살표 함수로 정의
             let bgColor = document.body.style.background;
             if(bgColor == "red"){
                 document.body.style.background = "yellow"
@@ -30,8 +31,6 @@
                 document.body.style.background = "red";
             }
         }, 1000) 
-
-        
 
         console.log("bye")
 

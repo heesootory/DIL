@@ -8,16 +8,44 @@
 </head>
 <body>
     <script>
-        const URL = "https://jsonplaceholder.typicode.com/todos/1"
-        // json 데이터 연습을 위해, 자료를 계속 제공해주는 사이트
-    
-        
+         // json 연습용데이터를 게속 쏴주는 사이트
+         const URL = "https://jsonplaceholder.typicode.com/todos/1"
 
+        // AJAX 통신을 하겠다.
+
+        const xhr = new XMLHttpRequest();
+
+        // xhr을 보내기 위해서 open메서드를 활용해야겠다.
+        xhr.open('GET', URL);          // async(비동기)가 디폴트
+        xhr.send();     // 요청 보내기
+
+
+        // 1. onreadystatechange를 활용한 방법
+
+        // xhr.onreadystatechange = function() {
+        //     if(xhr.readyState == xhr.DONE){
+        //         if(xhr.status == 200){
+        //             const todo = xhr.response;
+        //             console.log(todo)
+        //         }
+        //     }
+        // }
+        
+        /**
+         * 출력이 정상적으로 작동.
+         */
+
+         // 2. readyState 한 상태까지 확인하기 귀찮다?
+         
+         xhr.onload = function() {
+            if(xhr.status == 200){
+                const todo = xhr.response;
+                console.log(todo);
+            }
+         }
 
 
     </script>
-
-
 
 </body>
 </html>

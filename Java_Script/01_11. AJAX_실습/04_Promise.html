@@ -10,22 +10,25 @@
     
     <script>
         const promise = new Promise((resolve, reject) => {
+            // 비동기 형태의 꽤나 무거운 작업들이 들어가게 된다. (시간이 걸리는 네트워크 통신 등)
             console.log("promise");
-            resolve("resolve");
+            resolve("성공");
             // reject("거절")
         })
 
-        promise
+        promise     // 자바의 StringBuilder처럼 사용된다고 생각하자! -> 체이닝 되서 append하는 것 처럼.
             // 성공했을 때! 
-            .then((response) => {
+            .then((response) => {           //response에 "성공" 이라는 문자열이 인자로 들어옴. 
                 console.log(response)
             })  // 거절 되었을 때!!
-            .catch((response) => {
+            .catch((response) => {          //response에 "실패" 이라는 문자열이 인자로 들어옴. 
                 console.log(response)
             })
             .finally(() =>{
                 console.log("무조건 실헹!")
             })
+
+        // 결국 계속 promise 객체를 반환하는 것!!!
 
     </script>
 
