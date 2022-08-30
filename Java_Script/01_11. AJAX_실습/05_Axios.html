@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const URL = "https://dog.ceo/api/breeds/image/random";
+        // 1. Axios
+        //1-1. Axios의 return 값은 Promise
+        
+        // const myPromise = axios.get(URL)        // open, send해서 전부다 쏴준거다 - 이 한문장으로
+        // myPromise
+        // .then((response) =>{
+        //     console.log(response)
+        // })
+
+        // 1-2 .체이닝 방식으로 받기
+        axios.get(URL)
+        .then((response) => {
+            console.log(response)
+            return response.data        // 그 중 데이터 정보만 받아서 아래에서 실행.
+        })  
+        .then((response) => {       // 여기서 response 는 위에서 return한 값.
+            console.log(response)
+            return response.status      // 그 중에서 status에 해당하는 데이터
+        })
+        .then((response) => {
+            console.log(response)
+        })  // 중간에 실패 할것 같다! -> error 객체로 넘겨주기
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            console.log("나는 무조건 마지막에 실행")
+        })
+
+
+
+    </script>
+
+    
+</body>
+</html>

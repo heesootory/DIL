@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        .done{
+            text-decoration: line-through;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Todo List</h1>
+    <input type = "text" id = "todo-value" placeholder="할 일 입력">
+    <button id = "regist">등록</button>
+
+    <hr>
+
+    <h2>나의 할 일 목록</h2>
+    <ul id = "todo-list">
+
+    </ul>
+
+    <script>
+        const registBtn = document.querySelector("#regist")
+        const inputTag = document.querySelector("#todo-value")
+        const ulTag = document.querySelector("#todo-list")
+
+
+        function registTodo(){
+            const content = inputTag.value;
+        
+            
+            if(!content.trim()){        // 빈 문자열일 때, false 이므로
+                alert("할일을 입력하세요!!")
+            }else{
+                const liTag = document.createElement("li")
+                liTag.innerText = content
+
+
+                // 일 했다 안했다 수정
+                liTag.addEventListener("click", function(event){
+                    // console.log(event)
+                    event.target.classList.toggle("done")       // toggle키가 속성이 생겼다 없어졌다 스위치처럼 작동하게 만듬.
+                    console.log(event.target)
+                    console.log(event.target.classList)
+                    // console.log(event.target.parentElement)
+                })
+
+
+                // 삭제 이벤트 달기
+                const delBtn = document.createElement("button")
+                delBtn.innerText = "X"
+                liTag.appendChild(delBtn)
+
+                //삭제 버튼에 이벤트를 달아보자
+                delBtn.addEventListener("click", function(event){
+                    event.target.parentElement.remove()     // 버튼의 부모 엘리먼트가 li이므로.
+                    // liTag.remove()       // 그냥 li태그를 날려버려도 된다.
+                })
+
+                ulTag.appendChild(liTag)    //목록에 추가
+                inputTag.value = ""     // 입력 초기화
+                inputTag.focus()        // 키가 다시 inputTag로 돌아오기 하기.
+            }
+            
+        }
+
+
+        //등록 버튼을 눌렸다면 이벤트를 걸자
+
+        registBtn.addEventListener("click", registTodo)
+
+        // 엔터쳤을때 검색키 but 한글 작동잘 안됨.
+        // inputTag.addEventListener("keyup", function(event){
+        //     if(event.code === "Enter"){
+        //         registTodo();
+        //     }
+        // })
+
+    </script>
+
+
+</body>
+</html>

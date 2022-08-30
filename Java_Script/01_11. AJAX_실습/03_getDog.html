@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dog</h1>
+    <button id = "btn"> 불러와 </button>
+    <br>
+    <img src="" alt="" id="dog-img">
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script>
+        const URL = "https://dog.ceo/api/breeds/image/random";
+
+        // 1. XMLHttpRequest로 데이터 받기
+
+        function getDog(){
+            const xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function() {        // 서버에서 응답이 도착하면 콜백함수를 호출해라.
+                if(xhr.readyState == xhr.DONE){
+                    if(xhr.status == 200){
+                        // 받은 이미지의 url 을 출력허기 - 아래 두문장은 동일
+                        // console.log(JSON.parse(xhr.response).message)
+                        // console.log(JSON.parse(xhr.response)['message'])
+
+                        const imgSrc = JSON.parse(xhr.response)['message']
+
+                        const imgTag = document.querySelector("#dog-img")
+                        imgTag.src = imgSrc;
+                        // imgTag.setAttribute("src", imgSrc);
+                    }
+                }
+            }
+
+            xhr.open("GET", URL)
+            xhr.send()
+        }
+
+        // 2. axios로 간단하게 받기
+
+        // function getDog()
+
+
+        // 버튼 클릭시 동작
+        const btn = document.querySelector("#btn")
+        btn.addEventListener("click", getDog)
+
+
+    </script>
+
+</body>
+</html>
