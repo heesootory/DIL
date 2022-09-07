@@ -1,5 +1,14 @@
 # Session
 
+<br>
+<br>
+
+🐳 요약 🐳
+
+> 세션은 서버 메모리에 해당 접근 브라우저에 대한 정보를 간략히 마련해 놓은 공간이다.( 그 공간의 id가 sessionId이고, 쿠키에 담겨있다.)
+
+<br>
+<br>
 
 ## session : javax.servlet.http.Httpsession
 
@@ -29,11 +38,18 @@
 
 2. 서버는 쿠키에 session id 가 있는지 확인.
 
-3. session id가 존재하지 않으면, session id 를 생성해 쿠키에 쓴 다음 클라로 반환.
+3. session id가 존재하지 않으면, session id 를 생성해 쿠키에 쓴 다음 클라로 반환.(우리가 안해도 알아서 해줌)
 
 4. 생성된 session id를 이용하여 서버 내 메모리를 생성.
 
-5. 클라가 다음 요청 시 쿠키에 session id를 포함해 전달하면 서버내에 저장된 session id와 비교하여 데이터를 조회.
+> 웹엑스의 세션과 비슷하게 생각해보자. -> 서버 메모리내에 나의 공간이 생성되는 꼴이다.
+
+> 따라서 그 공간마다, 또는 해당 브라우저마다 각기 다른 세션아이디(sessionId)를 가지게 되는 것.
+
+5. 클라가 다음 요청 시 쿠키에 session id를 포함해 전달하면 서버내에 저장된 session id와 비교하여 데이터를 조회. (session id만 저장하는 DB가 따로 존재해서 거기서 확인한다.)
+
+
+![cookie](/Image/cookie/193a99384c29b731272bd970c487fadf.png)
 
 ## 세션 설정
 
@@ -50,4 +66,12 @@
 ```java
 HttpSession session = request.getSession();
 session.setAttribute("userid", "ssafy");
+```
+
+> request안에 getSession()을 사용하여, 현재 사용하고 있는 session 객체를 가져올 수 있다. 또한 설정이 가능.
+
+* session에서 값을 반환하는 getAttribute메서드는 반환형이 Object이다.
+    - 따라서 필요에 따라서 형변환을 해서 사용할 수 있다. 
+```java
+String userid = (String)session.getAttribute("userid");
 ```
