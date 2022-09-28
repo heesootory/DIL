@@ -32,7 +32,7 @@
 <br>
 
 
-## ✈️ 코드 구현
+## ✈️ 코드 구현 - Union find 자료구조 이용
 
 ```java
 import java.io.*;
