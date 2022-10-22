@@ -10,6 +10,8 @@
 
 ## 🌈 프림 vs 다익스트라
 
+- 프림은 무향그래프에서, 다익스트라는 유향그래프!!
+
 - 프림은 출발지점 중심의 생각이고, 다익스트라는 경유지점 중심의 생각.
 
 - 프림은 출발지에 서서 이제 갈길들 중에 최소의 길을 선택한다.
@@ -37,7 +39,7 @@ import java.util.*;
 
 public class Main {
     static class Edge implements Comparable<Edge>{
-        int to, weight;
+        int to, weight;     // 유향그래프에서 진행되므로, from은 필요없다.
         Edge(int to, int weight){
             this.to = to;
             this.weight = weight;
