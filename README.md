@@ -20,4 +20,4 @@ Today I Learned 💪매일 꾸준히 활동 정리
 > ssafy 수업 + 김영한님 강의
 
   * [Spring JPA]()
-   - [JPA 기초](https://github.com/heesootory/TIL/blob/main/JPA/00_00.JPA%20%EC%86%8C%EA%B0%9C.md
+   - [JPA 기초](https://github.com/heesootory/TIL/blob/main/JPA/00_00.JPA%20%EC%86%8C%EA%B0%9C.md)
