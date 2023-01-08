@@ -18,6 +18,11 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [프록시와 연관관계 관리]()
 
 
+## Jenkins
+
+  * [jenkins로 remote server 원격접속 (ssh 사용)](https://github.com/heesootory/TIL/blob/main/%F0%9F%92%81%F0%9F%8F%BBJenkins/00_01.jenkins%EB%A1%9C%20remote%20serve%EC%9B%90%EA%B2%A9%EC%A0%91%EC%86%8D(ssh).md)
+
+
 ## Django
   
   * [Django](https://github.com/heesootory/TIL/tree/main/Django_Framework)
