@@ -41,6 +41,8 @@ $ cat etc/passwd            // 사용자 목록 전체 확인 -> 사용자 권�
 $ usermod -aG sudo [username]     // 사용자를 sudo 그룹에 등록
 $ su - [username]           // 새로 만든 사용자로 전환
 [username]$ sudo whoami     // root로 떠야 정상적으로 sudo 그룹에 등록된걸 확인할수 있음.
+
+$ sudo su           // 관리자 권한으로 변경
 ```
 
 ## ssh를 이용한 원격접속
