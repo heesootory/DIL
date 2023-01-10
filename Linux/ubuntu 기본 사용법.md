@@ -64,6 +64,12 @@ $ apt-get install systemd
 $ apt-get install iputils-ping
 ```
 
+* ping n번만 날리기
+  - -c 
+```zsh
+$ ping -c [n] [ip주소]
+```
+
 ## sudo : command not found
 ```zsh
 $ apt-get install sudo
