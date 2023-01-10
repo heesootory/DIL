@@ -59,5 +59,14 @@ $ apt-get install systemd
 ```
 
 
+## ping : command not found
+```zsh
+$ apt-get install iputils-ping
+```
+
+## sudo : command not found
+```zsh
+$ apt-get install sudo
+```
 
 
