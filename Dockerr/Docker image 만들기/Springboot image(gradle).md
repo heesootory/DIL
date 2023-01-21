@@ -84,7 +84,7 @@
 
     ```zsh
     docker build -t [heesootory/springboot_test] .
-    // 호환성 문제 해결 
+    // 호환성 문제 해결 - ec2 ubuntu 용으로 빌드
     docker build --platform linux/amd64 -t heesootory/springboot_test .
     ```
 
