@@ -8,7 +8,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
 
 
-## Spring 
+## 🍀 Spring 
 
 > 김영한님 강의
 
@@ -20,7 +20,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [프록시와 연관관계 관리]()
 
 
-## Jenkins
+## 💁🏻‍♂️ Jenkins
 
   * [jenkins in docker 시작 및 설정](https://github.com/heesootory/TIL/blob/main/Jenkins/00_00.jenkins%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 
@@ -31,6 +31,6 @@ Today I Learned 💪매일 꾸준히 활동 정리
   * [jenkins, git push 시, 자동 빌드화 시키기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_03.jenkins_github%20push%20%EC%9E%90%EB%8F%99%20%EB%B9%8C%EB%93%9C%ED%99%94.md)
 
 
-## Django
+##  Django
   
   * [Django](https://github.com/heesootory/TIL/tree/main/Django_Framework)
