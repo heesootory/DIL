@@ -7,12 +7,12 @@ Today I Learned 💪매일 꾸준히 활동 정리
   * [Oh-My-Zsh](https://github.com/heesootory/TIL/blob/main/Zsh/1_01.%EC%9E%90%EC%A3%BC%20%EC%93%B0%EB%8A%94%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%A0%95%EB%A6%AC.md)
 
 
-## ☕️ JAVA 
+## ☕️  JAVA 
 
   * [java 8 문법]
 
 
-## 🍀 Spring 
+## 🍀  Spring 
 
 > 김영한님 강의
 
@@ -24,7 +24,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [프록시와 연관관계 관리]()
 
 
-## 💁🏻‍♂️ Jenkins
+## 💁🏻‍♂️  Jenkins
 
   * [jenkins in docker 시작 및 설정](https://github.com/heesootory/TIL/blob/main/Jenkins/00_00.jenkins%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 
