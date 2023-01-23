@@ -20,7 +20,13 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
 ## Jenkins
 
+  * [jenkins in docker 시작 및 설정](https://github.com/heesootory/TIL/blob/main/Jenkins/00_00.jenkins%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
+
   * [jenkins로 remote server 원격접속 (ssh 사용)](https://github.com/heesootory/TIL/blob/main/Jenkins/00_01.jenkins%EB%A1%9C%20remote%20serve%EC%9B%90%EA%B2%A9%EC%A0%91%EC%86%8D(ssh).md)
+  
+  * [jenkins와 github 연동하기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_02.jenkins%EC%97%90%20github%20%EC%97%B0%EB%8F%99.md)
+  
+  * [jenkins, git push 시, 자동 빌드화 시키기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_03.jenkins_github%20push%20%EC%9E%90%EB%8F%99%20%EB%B9%8C%EB%93%9C%ED%99%94.md)
 
 
 ## Django
