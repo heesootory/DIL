@@ -75,6 +75,10 @@ $ ping -c [n] [ip주소]
 $ apt-get install sudo
 ```
 
+## 프로세스 툴 설치
+```zsh
+$ apt-get install -y procps
+```
 
 
 
