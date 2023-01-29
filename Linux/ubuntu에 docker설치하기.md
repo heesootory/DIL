@@ -14,7 +14,7 @@
 > 패키징 툴 업데이트, 업그레이드 시키기.
 
 ```zsh
-apt update & apt upgrade
+sudo apt update && apt upgrade -y
 ```
 
 ## docker 설치에 필요한 필수 패키지들 설치
