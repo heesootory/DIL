@@ -37,8 +37,21 @@ Today I Learned 💪매일 꾸준히 활동 정리
   * [jenkins와 github 연동하기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_02.jenkins%EC%97%90%20github%20%EC%97%B0%EB%8F%99.md)
   
   * [jenkins, git push 시, 자동 빌드화 시키기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_03.jenkins_github%20push%20%EC%9E%90%EB%8F%99%20%EB%B9%8C%EB%93%9C%ED%99%94.md)
+  
+  * [jenkins pipeline(github + dockerhub + slack 연동) - 23.01.17 기준](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
+  
+  * [jenkins pipeline(2) - gradle빌드](https://github.com/heesootory/TIL/blob/main/Jenkins/01_01.jenkins%20pipeline(2)%20-%20gradle%EB%B9%8C%EB%93%9C.md)
+  
+  * [jenkins pipeline(3) - docker_image_dockerhub](https://github.com/heesootory/TIL/blob/main/Jenkins/01_02.jenkins%20pipeline(3)%20-%20docker_image_dockerhub.md)
+  
+  * [jenkins pipeline(4) - SSH로 원격접속](https://github.com/heesootory/TIL/blob/main/Jenkins/01_03.jenkins%20pipeline(4)%20-%20SSH%EB%A1%9C%20%EC%9B%90%EA%B2%A9%EC%A0%91%EC%86%8D.md)
+  
+  * [jenkins pipeline(5) - slack 연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_04.jenkins%20pipeline(5)%20-%20slack%20%EC%97%B0%EB%8F%99.md)
+  
+  * [jenkins pipeline(6) - GitLab 연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_05.jenkins%20pipeline(6)%20-%20GitLab%20%EC%97%B0%EB%8F%99.md)
 
-
+  *[jenkins_credential 등록하는 여러가지 방법](https://github.com/heesootory/TIL/blob/main/Jenkins/02_00.jenkins_credential%20%EB%93%B1%EB%A1%9D%ED%95%98%EB%8A%94%20%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80%20%EB%B0%A9%EB%B2%95.md) 
+  
 ## 🖥 AWS EC2
 
   * EC2 - ubuntu 사용시
