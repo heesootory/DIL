@@ -46,7 +46,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
    * [jenkins와 github 연동하기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_02.jenkins%EC%97%90%20github%20%EC%97%B0%EB%8F%99.md)
   
    * [jenkins, git push 시, 자동 빌드화 시키기](https://github.com/heesootory/TIL/blob/main/Jenkins/00_03.jenkins_github%20push%20%EC%9E%90%EB%8F%99%20%EB%B9%8C%EB%93%9C%ED%99%94.md)
-   * [jenkins pipeline script](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
+   * [jenkins pipeline script ](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
       - [jenkins pipeline(1) - github연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
       - [jenkins pipeline(2) - gradle빌드](https://github.com/heesootory/TIL/blob/main/Jenkins/01_01.jenkins%20pipeline(2)%20-%20gradle%EB%B9%8C%EB%93%9C.md)
       - [jenkins pipeline(3) - docker_image_dockerhub](https://github.com/heesootory/TIL/blob/main/Jenkins/01_02.jenkins%20pipeline(3)%20-%20docker_image_dockerhub.md)
