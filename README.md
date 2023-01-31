@@ -30,6 +30,11 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [확장 기능](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_02.%ED%99%95%EC%9E%A5%20%EA%B8%B0%EB%8A%A5.md)
      - [스프링 데이터 JPA 구현체 분석](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_03.%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA%20%EA%B5%AC%ED%98%84%EC%B2%B4%20%EB%B6%84%EC%84%9D.md)
      
+ * [Querydsl](https://github.com/heesootory/TIL/tree/main/Spring/Querydsl)
+     - [기본 문법](https://github.com/heesootory/TIL/blob/main/Spring/Querydsl/05_00.%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95.md)
+     - [중급 문법](https://github.com/heesootory/TIL/blob/main/Spring/Querydsl/05_01.%20%EC%A4%91%EA%B8%89%20%EB%AC%B8%EB%B2%95.md)
+     - [순수 JPA리포지토리와 Querydsl](https://github.com/heesootory/TIL/blob/main/Spring/Querydsl/05_02.%20%EC%88%9C%EC%88%98%20JPA%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC%EC%99%80%20Querydsl.md)
+     - [스프링 데이터 JPA와 Querydsl](https://github.com/heesootory/TIL/blob/main/Spring/Querydsl/05_03.%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA%EC%99%80%20Querydsl.md)
      
 
 ## 💁🏻‍♂️  Jenkins
