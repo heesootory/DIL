@@ -49,7 +49,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
    * [jenkins pipeline script ](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
       - [jenkins pipeline(1) - github연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_00.jenkins%20pipeline(1)%20-%20github%EC%97%B0%EB%8F%99.md)
       - [jenkins pipeline(2) - gradle빌드](https://github.com/heesootory/TIL/blob/main/Jenkins/01_01.jenkins%20pipeline(2)%20-%20gradle%EB%B9%8C%EB%93%9C.md)
-      - [jenkins pipeline(3) - docker_image_dockerhub](https://github.com/heesootory/TIL/blob/main/Jenkins/01_02.jenkins%20pipeline(3)%20-%20docker_image_dockerhub.md)
+      - [jenkins pipeline(3) - dockerhub 연동(docker_image)](https://github.com/heesootory/TIL/blob/main/Jenkins/01_02.jenkins%20pipeline(3)%20-%20docker_image_dockerhub.md)
       - [jenkins pipeline(4) - SSH로 원격접속](https://github.com/heesootory/TIL/blob/main/Jenkins/01_03.jenkins%20pipeline(4)%20-%20SSH%EB%A1%9C%20%EC%9B%90%EA%B2%A9%EC%A0%91%EC%86%8D.md)
       - [jenkins pipeline(5) - slack 연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_04.jenkins%20pipeline(5)%20-%20slack%20%EC%97%B0%EB%8F%99.md)
       - [jenkins pipeline(6) - GitLab 연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_05.jenkins%20pipeline(6)%20-%20GitLab%20%EC%97%B0%EB%8F%99.md)
