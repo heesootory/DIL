@@ -26,7 +26,11 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * [스프링 데이터 JPA](https://github.com/heesootory/TIL/tree/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA)
      - [JPA 리포지토리](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_00.JPA%20%EB%A0%88%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC.md)
-     - 
+     - [쿼리 메서드 기능](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_01.%EC%BF%BC%EB%A6%AC%20%EB%A9%94%EC%84%9C%EB%93%9C%20%EA%B8%B0%EB%8A%A5.md)
+     - [확장 기능](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_02.%ED%99%95%EC%9E%A5%20%EA%B8%B0%EB%8A%A5.md)
+     - [스프링 데이터 JPA 구현체 분석](https://github.com/heesootory/TIL/blob/main/Spring/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA/04_03.%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA%20%EA%B5%AC%ED%98%84%EC%B2%B4%20%EB%B6%84%EC%84%9D.md)
+     
+     
 
 ## 💁🏻‍♂️  Jenkins
 
