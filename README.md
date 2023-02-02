@@ -60,11 +60,8 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * EC2 - ubuntu 사용시
       - [ubuntu 기본 사용법](https://github.com/heesootory/TIL/blob/main/Linux/ubuntu%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-  
       - [ubuntu에 docker 설치](https://github.com/heesootory/TIL/blob/main/Linux/ubuntu%EC%97%90%20docker%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
- 
       - [ubuntu에 mysql 설치](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_01.ubuntu%20-%20mysql%20%EC%84%A4%EC%B9%98.md)
-      
       - [ubuntu에 nginx 설치](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_03.ubuntu-%20nginx%20%EC%84%A4%EC%B9%98.md)
 
 
@@ -74,7 +71,10 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [Springboot(gradle)](https://github.com/heesootory/TIL/blob/main/Dockerr/Docker%20image%20%EB%A7%8C%EB%93%A4%EA%B8%B0/Springboot%20image(gradle).md)
 
 
-## 🔫 [Trouble Shooting](https://github.com/heesootory/TIL/tree/main/Trouble_Shooting)
+## 🔫 Trouble Shooting
+
+  * [Trouble Shooting 목록](https://github.com/heesootory/TIL/tree/main/Trouble_Shooting)
+     - 
 
 
 ## 🦚 Django
