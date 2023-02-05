@@ -61,8 +61,8 @@ Today I Learned 💪매일 꾸준히 활동 정리
 ## 🖥 AWS EC2
 
   * EC2 - ubuntu 사용시
-      - [ubuntu 기본 사용법](https://github.com/heesootory/TIL/blob/main/Linux/ubuntu%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
-      - [ubuntu에 docker 설치](https://github.com/heesootory/TIL/blob/main/Linux/ubuntu%EC%97%90%20docker%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0.md)
+      - [ubuntu 기본 사용법](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_00.ubuntu%20%EA%B8%B0%EB%B3%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95.md)
+      - [ubuntu에 docker 설치](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_02.ubuntu-%20docker%EC%84%A4%EC%B9%98.md)
       - [ubuntu에 mysql 설치](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_01.ubuntu%20-%20mysql%20%EC%84%A4%EC%B9%98.md)
       - [ubuntu에 nginx 설치](https://github.com/heesootory/TIL/blob/main/AWS(Amazon_Web_Service)/03_03.ubuntu-%20nginx%20%EC%84%A4%EC%B9%98.md)
 
