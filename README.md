@@ -52,6 +52,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
       - [jenkins pipeline(6) - GitLab 연동](https://github.com/heesootory/TIL/blob/main/Jenkins/01_05.jenkins%20pipeline(6)%20-%20GitLab%20%EC%97%B0%EB%8F%99.md)
       
    * [jenkins_credential 등록하는 여러가지 방법](https://github.com/heesootory/TIL/blob/main/Jenkins/02_00.jenkins_credential%20%EB%93%B1%EB%A1%9D%ED%95%98%EB%8A%94%20%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80%20%EB%B0%A9%EB%B2%95.md) 
+   * [jenkins - react CI/CD]
   
 ## 🖥 AWS EC2
 
