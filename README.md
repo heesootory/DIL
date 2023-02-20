@@ -80,6 +80,13 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * [Apache Kafka 란?]()
 
+
+
+## 🌪️ Big Data
+
+  * [mapreduce란?]()
+
+
 ## 🔫 Trouble Shooting
 
   * [Trouble Shooting 목록](https://github.com/heesootory/TIL/tree/main/Trouble_Shooting)
