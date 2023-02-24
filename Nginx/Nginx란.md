@@ -54,15 +54,33 @@
     - 중요하지 않은 요청들 버리기
     - nginx단에서 에러페이지를 보여줌으로써 부하를 막고, 사용자들 입장에서 기분이 나쁘지 않게 재요청시, 서버로 연결이 가능하게.
 
+<br>
+<br>
 
+## 🌈 까다로운 NGINX 설정
 
+<br>
 
-## 🌈 트러블이 생겼을때!
+> 설정이 길어지고 많아지다보면, 설정이 매우 직관적이지 않다. 설정이 쉽고 편리해 보이지만, 생각보다 까다롭다. 따라서 기술 부채가 되기 쉽다!
 
+* Non intuitive(sometimes)
 
+* Priority(sometimes)
+    - nginx의 directive(지시자)들에는 우선순위가 존재하는데, 여러가지를 함께 사용할시, 설정이 복잡해 질 수 있다.
 
+* Difficult to debug
 
+<br>
+<br>
 
+<img 
+    src = "../Image/nginx/load2.PNG"
+    width = 500px
+    height = 200px   
+/>
+
+<br>
+<br>
 
 
 
