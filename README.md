@@ -34,6 +34,25 @@ Today I Learned 💪매일 꾸준히 활동 정리
      - [스프링 데이터 JPA와 Querydsl](https://github.com/heesootory/TIL/blob/main/Spring/Querydsl/05_03.%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA%EC%99%80%20Querydsl.md)
      
 
+<br>
+
+## 🌳 Spring Cloud
+
+
+
+
+
+
+
+<br>
+
+## 🌏 MSA Architecture
+
+
+
+
+<br>
+
 ## 💁🏻‍♂️  Jenkins
 
    * [jenkins in docker 시작 및 설정](https://github.com/heesootory/TIL/blob/main/Jenkins/00_00.jenkins%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
@@ -85,8 +104,13 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * [Nginx의 활용]()
 
-## 💐 ELK 스택
+## 💐 ELk 스택 - 통합로그 시스템
 
+  * [ElasticSearch]()
+
+  * [Logstash]()
+
+  * [Kibana]()
 
 
 
