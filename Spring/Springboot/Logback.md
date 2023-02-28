@@ -63,7 +63,7 @@
 * Java Legacy, Spring의 경우에는 logback.xml 파일을 참조.
 
 * SpringBoot의 경우에는 Logback-spring.xml 파일을 참조.
-    - application.yml 설정에 특별한 설정 없이, src/main/resources에 "Logback-spring.xml"이름으로 로그 설정 파일을 만들시 자동으로 인식.
+    - application.yml 설정에 특별한 설정 없이, src/main/resources에 "Logback-spring.xml"이름으로 로그 설정 파일을 만들시 자동으로 인식. (starter-web 패키지에서 들고있음)
     - 배포되는 환경에서는 application.yml에 아래와 같은 설정을 해야 인식 가능.
         ```yml
         logging:
@@ -80,6 +80,30 @@
 <br>
 
 ## 🌈 logback-spring.xml 분석
+
+<br>
+
+### 🐳 configuration 태그로 시작!
+
+* scan = "true"
+    - logback 구현체가 설정한 파일을 주기적으로 확인해서 추가.
+
+* scanPeriod = "30 seconds"
+    - 30초 마다 설정 파일을 비교해보도 추가된 내용 적용.
+
+<br>
+
+<hr>
+
+<br>
+
+### 🐳 property 
+
+> logback-spring.xml 내에서 사용할 변수 설정.
+
+<br>
+
+<hr>
 
 <br>
 
@@ -167,6 +191,8 @@
     %msg : 로그 메세지 영역.(==%message)
     ${PID:-} : 프로세스 id
     %d : 로그 기록 시간
+        - {} 출력 형식 지정
+        - [%d{yyyy-MM-dd HH:mm:ss, ${logback.timezone:-Asia/Seoul}}] : 한국 시간대로 설정
     %p : 로깅 레벨
     %F : 로깅이 발생한 프로그램 파일명.
     %M : 로깅이 발생한 메소드의 이름.
@@ -233,6 +259,40 @@
 
 * TRACE : DEBUG레벨보다 더 디테일한 메시지를 표현하기 위한 레벨.
 
+<br>
+<br>
+<br>
+
+
+## 🌈 로그 사용
+
+* 로그에 변수값 출력.
+    - 중괄호를 이용해서 쉽게 변수값을 대입할 수 있다.
+    
+    ```java
+    int test = 10;
+    log.info("info log :: test quantity is {}", test);
+    ```
+
+* 로그를 이용해 시간 측정
+
+    - 하나의 비지니스 로직이 수행되는데 걸리는 시간 측정
+
+        ```java
+        @RestController
+        @Slf4j
+        public class welcome {
+            @GetMapping("/welcome")
+            public String check() throws InterruptedException {
+
+                Long startTime = System.currentTimeMillis();
+                Thread.sleep(1000); // 1초 일시정지
+                log.info("info log :: this method used {} time", System.currentTimeMillis() - startTime);
+
+                return "welcome to user server";
+            }
+        }
+        ```
 
 
 
@@ -245,6 +305,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+
+🚀 참고 자료 🚀
+
+["어라운드 허브" 유투브 강의](https://www.youtube.com/watch?v=fkwb8coxBJM&t=11s)
 
 
 
