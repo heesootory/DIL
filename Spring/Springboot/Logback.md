@@ -308,6 +308,57 @@
 
 
 
+## 🌈 logback 코드 예시
+
+<br>
+
+### 🐳 console 출력 & file 저장 
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!-- log file 저장 경로 -->
+    <property name="logdir" value="C:/Users/SSAFY/Desktop/log"/>
+
+    <!-- Console 출력 Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level> <!-- 디버그 이상의 출력값들을 보겠다는 이야기 -->
+        </filter>
+        <encoder>
+            <pattern>%highlight([%-5level]) %cyan([%d{yyyy-MM-dd HH:mm:ss, ${logback.timezone:-Asia/Seoul}}]) %magenta([%thread]) : %green(%logger{2}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File 저장 Appenders -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level> <!-- 디버그 이상의 출력값들을 보겠다는 이야기 -->
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logdir}/info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%highlight([%-5level]) %cyan([%d{yyyy-MM-dd HH:mm:ss, ${logback.timezone:-Asia/Seoul}}]) %magenta([%thread]) : %green(%logger{2}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+
+
+</configuration>
+
+
+```
+
+
+
 
 
 
