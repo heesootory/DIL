@@ -297,6 +297,13 @@
 
 ## 🌈 로그 글씨색 적용
 
+* 예시 코드
+
+    ```xml
+    <Pattern>
+        %highlight([%-5level]) %cyan([%d{yyyy-MM-dd HH:mm:ss, ${logback.timezone:-Asia/Seoul}}]) %magenta([%thread]) : %green(%logger{2}) - %msg%n
+    </Pattern>
+    ```
 
 
 
