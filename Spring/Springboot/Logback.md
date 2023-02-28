@@ -79,7 +79,36 @@
 />
 <br>
 
-#### 🎯 appender
+## 🌈 logback-spring.xml 분석
+
+<br>
+
+### 🐳 appender 영역
+
+<br>
+
+```xml
+<appender name="INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>INFO<level>
+    </filter>
+    <file>${logdir}/${moduleId}/${logback}/info_${type}.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>${logdir}/${moduleId}/${logback}/info_${type}.%d{yyyy-MM-dd}.gz
+        </fileNamePattern>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+        <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level][%thread]%logger %msg%n</pattern>
+    </encoder>
+</appender>
+```
+
+<hr>
+<br>
+
+#### 🎯 appender 설정
 
 > Log의 형태 및 어디에 출력할지 설정하기 위한 영역.
 
@@ -91,11 +120,54 @@
 * DBAppender: 데이터베이스로 로그를 저장.
 
 
+<br>
+
+#### 🎯 filter
+
+> 임계값(level)보다 낮은 레벨의 경우는 로그 출력이 거부가 되는 설정이 가능.
+
+> 로그 출력의 범위 설정!
+
+> 위의 코드와 같이 INFO로 level이 잡혀있다면, 그 아래 영역인 Trace와 Debug레벨의 로그는 출력되지 않음.
 
 
+<br>
 
+#### 🎯 file
 
+> 어떤위치에, 어떤 파일 제목으로 저장할 것인지 지정.
 
+<br>
+
+#### 🎯 append
+
+> 추가 내용이 있으면, "추가한다"는 의미.
+
+<br>
+
+#### 🎯 RollingPolicy
+
+> appender의 설정이 RollingFileAppender이므로, 사용한 태그.
+
+* fileNamePattern : 압축시킬 파일의 경로와 파일명 설정.
+
+* maxHistory : 저장할 일수 지정(단위: 일)
+    - 위와 같은 경우 30일동안 저장.
+
+<br>
+
+#### 🎯 encoder
+
+> pattern 태그를 사용하여 원하는 형식으로 로그를 표현 가능.
+
+<br>
+<br>
+
+### 🐳 root 영역
+
+<br>
+
+#### 🎯 encoder
 
 
 
