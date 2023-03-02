@@ -106,6 +106,13 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
 ## 🎡 ELK 스택
 
+  * [Filebeat]()
+
+  * [Logstash]()
+
+  * [elasticsearch]()
+
+  * [Kibana]()
 
 
 
@@ -117,7 +124,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
 ## 🔫 Trouble Shooting
 
   * [Trouble Shooting 목록](https://github.com/heesootory/TIL/tree/main/Trouble_Shooting)
-     - 
+     
 
 
 ## 🦚 Django
