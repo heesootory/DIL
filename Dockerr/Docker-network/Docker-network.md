@@ -25,3 +25,11 @@ $ docker network inspect [network이름]
 ```
 
 
+* docker network 삭제
+
+```zsh
+$ docker network rm [network이름]
+```
+
+
+
