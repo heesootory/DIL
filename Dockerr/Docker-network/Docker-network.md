@@ -14,6 +14,7 @@ $ docker network ls
 * docker network 생성
     - --gateway : 기본게이트웨이 주소 (아래는 예시)
     - --subnet : 서브넷마스크 주소 (아래는 예시)
+    - --driver : 네트워크 드라이버의 종류 설정이 가능.(default가 bridge)
 
     ```zsh
     $ docker network create --gateway [172.18.0.1] --subnet [172.18.0.0/16] [network이름]
