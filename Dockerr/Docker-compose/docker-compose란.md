@@ -111,6 +111,10 @@
     - 사용자가 정의한 network 를 사용할 시에만 따로 networks 설정을 명시해 주면됨.
 
     - 사용자 network를 사용할시, 최하단에 services와 같은 레벨에서 따로 정의를 해줘야 사용이 가능.
+        - driver의 default가 설정되어 있으므로, 굳이 명시 안해도 되긴함.
+        - driver default 
+            - docker-compose : bridge
+            - docker swarm의 stack : overlay
         ```yml
         networks:
           [사용자 네트워크 이름]:
@@ -132,6 +136,10 @@
         width = 900px
         height = 500px
     />
+
+* container_name : 컨테이너 이름을 사용자가 정의할 수 있음.
+
+
 
 
 ### 🐳 위의 설정대로 docker-compose를 실행한 결과
@@ -159,6 +167,51 @@
     height = 800px
 />
 
+
+
+### 🐳 사용한 docker-compose.yaml
+
+```yaml
+version: "3"
+
+services: 
+  discovery-service:
+    image: 'local/discovery-service'
+    networks:
+      - marizoo
+    ports: 
+      - 8761:8761
+
+  apigateway-service:
+    image: 'local/apigateway-service'
+    environment:
+      # - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/ ('='이나 ':' 모두 가능)
+      eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka/
+    networks:
+      - marizoo
+    ports:
+      - 9999:9999
+
+  user-service:
+    image: 'local/user-service'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka/
+    networks:
+      - marizoo
+    
+  owner-service:
+    image: 'local/owner-service'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka/
+    networks:
+      - marizoo
+
+networks:
+  marizoo:
+    driver: bridge
+
+```
+
 <BR>
 <BR>
 <HR>
@@ -180,8 +233,6 @@
     - image name : 최상위 디렉토리명(msa_gradle_test)_[각자 service 명]으로 생성.
     - container name : image name과 동일한 형식으로 만들어짐.
 
-    
-
 
 <BR>
 <BR>
@@ -200,6 +251,13 @@ $ docker-compose down       // 모든 컨테이너 종료+삭제
 ```
 
 ### 🐳 
+
+
+
+
+
+
+
 
 
 
