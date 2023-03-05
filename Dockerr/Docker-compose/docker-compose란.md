@@ -71,6 +71,7 @@
 <br>
 
 * image : 사용할 이미지를 작성.
+    - 이미 존재하는 이미지를 사용할 때
 
     <img
         src = "../../Image/docker/docker_compose/1.png"
@@ -131,4 +132,75 @@
         width = 900px
         height = 500px
     />
+
+
+### 🐳 위의 설정대로 docker-compose를 실행한 결과
+
+
+<br>
+
+* container name과 network name 확인!
+
+<img
+    src = "../../Image/docker/docker_compose/7.png"
+    width = 900px
+    height = 100px
+/>
+
+<img
+    src = "../../Image/docker/docker_compose/6.png"
+    width = 900px
+    height = 100px
+/>
+
+<img
+    src = "../../Image/docker/docker_compose/5.png"
+    width = 900px
+    height = 800px
+/>
+
+<BR>
+<BR>
+<HR>
+<BR>
+<BR>
+
+### 🐳 build 명령어를 이용한 docker-compose
+
+* build: docker build 명령어를 실행할 디렉토리 명을 명시.(dockerfile이 당연히 내부에 존재해야 함.)
+
+<img
+    src = "../../Image/docker/docker_compose/8.png"
+    width = 900px
+    height = 600px
+/>
+
+
+* 이름 규칙
+    - image name : 최상위 디렉토리명(msa_gradle_test)_[각자 service 명]으로 생성.
+    - container name : image name과 동일한 형식으로 만들어짐.
+
+    
+
+
+<BR>
+<BR>
+<HR>
+<BR>
+<BR>
+
+## 🌈 docker-compose 명령어
+
+<br>
+
+```zsh
+$ docker-compose up         // 모든 컨테이너 생성+실행
+$ docker-compose up -d      // 백그라운드로 실행
+$ docker-compose down       // 모든 컨테이너 종료+삭제     
+```
+
+### 🐳 
+
+
+
 
