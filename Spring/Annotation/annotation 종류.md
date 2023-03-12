@@ -23,4 +23,27 @@
 <br>
 <br>
 
-##  
+## @postConstruct
+
+* 호출시기  
+    - 생성자 호출
+    - 의존성 주입 완료 (@Autowired | @RequiredArgsConstructor )
+    - @postConstruct
+
+* 사용 이유
+    - bean lifeCycle 에서 오직 한 번만 수행됨.(여러번 초기화 방지)
+    - WAS 가 뜬 이후로 딱 한번만 수행됨.
+
+<Br>
+<Br>
+
+## @PreDestroy
+
+* 사용 이유
+    - spring 어플리케이션 컨텍스트에서 bean 을 제거하기 직전에 단 한 번만 수행됨.
+
+
+
+
+
+
