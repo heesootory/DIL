@@ -110,6 +110,13 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * [Nginx의 활용]()
 
+## 🦩 Redis
+
+  * [redis 개념]()
+  * [redis springboot 연동]()
+  * [redis 캐시로 사용하기]()
+
+
 ## 🎡 ELK 스택
 
   * [Filebeat]()
