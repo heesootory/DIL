@@ -113,8 +113,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
 ## 🦩 Redis
 
   * [redis 개념]()
-  * [redis springboot 연동]()
-  * [redis 캐시로 사용하기]()
+  * [redis springboot 연동(mysql과 함께 사용)]()
 
 
 ## 🎡 ELK 스택
