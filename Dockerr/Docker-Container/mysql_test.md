@@ -13,7 +13,7 @@
 <br>
 
 ```zsh
-docker run -d -p 3306:3306 --name mysql-server -e MYSQL_ROOTPASSWORD=1234 mysql:latest
+docker run -d -p 3306:3306 --name mysql-server -e MYSQL_ROOT_PASSWORD=1234 mysql:latest
 ```
 
 
