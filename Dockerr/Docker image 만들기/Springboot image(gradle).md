@@ -31,6 +31,12 @@
 ./gradlew clean build
 ```
 
+* test 스킵하고 빌드하기
+
+```zsh
+./gradlew clean build --exclude-task test
+```
+
 
 * build 파일이 생성되고, build/libs 아래에 빌드파일인 .jar 이 생성된다.
     - 추후 dockerfile 을 작성할때 이 경로를 적어줘야 한다.(JAR_FILE)
@@ -51,6 +57,14 @@
     width = 700px
     height = 500px
 />
+
+```dockerfile
+FROM openjdk:17-ea-11-jdk-slim
+VOLUME /tmp
+ARG JAR_FILE=build/libs/*jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
 
 
 * FROM 
