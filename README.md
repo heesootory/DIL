@@ -120,8 +120,11 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
 ## 🦩 Redis
 
-  * [redis 개념]()
-  * [redis springboot 연동(mysql과 함께 사용)]()
+  * [redis 개념](https://github.com/heesootory/TIL/blob/main/Redis/00_00.Redis%EB%9E%80.md)
+  * [redis Springboot_mysql캐시 - redisRepository 사용](https://github.com/heesootory/TIL/blob/main/Redis/00_01.Springboot_mysql%20%EC%BA%90%EC%8B%9C-%20redisRepository%EA%B5%AC%ED%98%84.md)
+  * [Springboot_redis저장소 - redisTemplate 사용](https://github.com/heesootory/TIL/blob/main/Redis/00_02.Springboot_redis%EC%A0%80%EC%9E%A5%EC%86%8C%20-%20redisTemplate%EA%B5%AC%ED%98%84.md)
+  * [redis docker 사용](https://github.com/heesootory/TIL/blob/main/Redis/00_03.redis-docker%20%EC%82%AC%EC%9A%A9.md)
+  * [redis PubSub 구현](https://github.com/heesootory/TIL/blob/main/Redis/00_04.redis_PubSub%20%EA%B5%AC%ED%98%84.md)
 
 
 ## 🎡 ELK 스택
