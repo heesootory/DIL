@@ -5,7 +5,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
 ## 🎞 Web
 
-[CORS]
+[CORS에러]
 
 
 ## 💻 자주 쓰는 명령어 정리 - zsh
