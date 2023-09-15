@@ -39,35 +39,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
      
 
 <br>
-
-## 🎍 Spring Security
-     
- 
- 
- 
-
 <br>
-
-## 🌳 Spring Cloud
-
-
-
-
-
-
-
-<br>
-
-## 🌏 MSA Architecture
-
-
-
-<br>
-
-## 👓 Monitering system
-
-   * [Grafana]()
-
 <br>
 
 ## 💁🏻‍♂️  Jenkins
@@ -141,6 +113,27 @@ Today I Learned 💪매일 꾸준히 활동 정리
 
   * [Kibana]()
 
+<br>
+
+## 🎍 Spring Security
+    
+<br>
+
+## 🌳 Spring Cloud
+
+
+<br>
+
+## 🌏 MSA Architecture
+
+
+<br>
+
+## 👓 Monitering system
+
+   * [Grafana]()
+
+<br>
 
 ## 🍹 Socket 연결
 
