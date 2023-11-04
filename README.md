@@ -103,7 +103,7 @@ Today I Learned 💪매일 꾸준히 활동 정리
   * [redis PubSub 구현](https://github.com/heesootory/TIL/blob/main/Redis/00_04.redis_PubSub%20%EA%B5%AC%ED%98%84.md)
 
 
-## 🎡 ELK 스택
+## 🎡 ELK Stack
 
   * [Filebeat]()
 
